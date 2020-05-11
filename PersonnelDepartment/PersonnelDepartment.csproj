@@ -59,8 +59,10 @@
     <Compile Include="DTO\BusinessTrip.cs" />
     <Compile Include="DTO\Education.cs" />
     <Compile Include="DTO\Employee.cs" />
+    <Compile Include="DTO\EmployeePosition.cs" />
     <Compile Include="DTO\Holyday.cs" />
     <Compile Include="DTO\Organization.cs" />
+    <Compile Include="DTO\WorkingUnit.cs" />
     <Compile Include="Helpers\Utils.cs" />
     <Compile Include="Helpers\Validator.cs" />
     <Compile Include="Windows\Employee.xaml.cs">
