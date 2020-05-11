@@ -61,6 +61,7 @@
     <Compile Include="DTO\Employee.cs" />
     <Compile Include="DTO\Holyday.cs" />
     <Compile Include="DTO\Organization.cs" />
+    <Compile Include="Helpers\Utils.cs" />
     <Compile Include="Helpers\Validator.cs" />
     <Compile Include="Windows\Employee.xaml.cs">
       <DependentUpon>Employee.xaml</DependentUpon>
