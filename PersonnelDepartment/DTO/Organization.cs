@@ -24,6 +24,6 @@
         /// <summary>
         /// Адрес организации
         /// </summary>
-        public string Adress { get; }
+        public string Address { get; }
     }
 }
