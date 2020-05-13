@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PersonnelDepartment"
         mc:Ignorable="d"
-        Title="Отпуск" Height="450" Width="800">
+        Title="Отпуск" Height="300" Width="250" ResizeMode="NoResize">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
         
+        <TextBlock Grid.Row="1" Margin="75,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Работник"/>
+        <ComboBox Grid.Row="1" Margin="75,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100"/>
+
+        <CheckBox Grid.Row="2" Margin="75,5,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Оплачиваемый"/>
+
+        <TextBlock Grid.Row="3" Margin="75,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"  Text="Начало отпуска"/>
+        <DatePicker Grid.Row="3" Margin="75,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100"/>
+
+        <TextBlock Grid.Row="4" Margin="75,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"  Text="Конец отпуска"/>
+        <DatePicker Grid.Row="4" Margin="75,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100"/>
+
+        <Button Grid.Row="6" Margin="25,0,0,0" Width="80" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Оформить" x:Name="Enter"/>
+        <Button Grid.Row="6" Margin="0,0,25,0" Width="80" VerticalAlignment="Center" HorizontalAlignment="Right" Content="Отмена" x:Name="Exit"/>
     </Grid>
 </Window>
