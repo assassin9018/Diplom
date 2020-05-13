@@ -62,6 +62,7 @@
     <Compile Include="DTO\EmployeePosition.cs" />
     <Compile Include="DTO\Holyday.cs" />
     <Compile Include="DTO\Organization.cs" />
+    <Compile Include="DTO\User.cs" />
     <Compile Include="DTO\WorkingUnit.cs" />
     <Compile Include="Helpers\Utils.cs" />
     <Compile Include="Helpers\Validator.cs" />
