@@ -66,6 +66,9 @@
     <Compile Include="DTO\WorkingUnit.cs" />
     <Compile Include="Helpers\Utils.cs" />
     <Compile Include="Helpers\Validator.cs" />
+    <Compile Include="Windows\City.xaml.cs">
+      <DependentUpon>City.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Employee.xaml.cs">
       <DependentUpon>Employee.xaml</DependentUpon>
     </Compile>
@@ -99,6 +102,10 @@
       <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Windows\City.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\Employee.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
