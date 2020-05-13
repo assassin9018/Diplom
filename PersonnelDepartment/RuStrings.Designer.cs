@@ -59,5 +59,23 @@ namespace PersonnelDepartment {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на На форме  указаны некорректные данные..
+        /// </summary>
+        internal static string InvalidData {
+            get {
+                return ResourceManager.GetString("InvalidData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Во время выполнения запроса произошла ошибка. Проверьте подключение к базе данных..
+        /// </summary>
+        internal static string QueryError {
+            get {
+                return ResourceManager.GetString("QueryError", resourceCulture);
+            }
+        }
     }
 }
