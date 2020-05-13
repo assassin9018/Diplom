@@ -90,6 +90,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RuStrings.resx</DependentUpon>
     </Compile>
+    <Compile Include="Windows\PositionWindow.xaml.cs">
+      <DependentUpon>PositionWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\User.xaml.cs">
       <DependentUpon>User.xaml</DependentUpon>
     </Compile>
@@ -126,6 +129,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Organization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PositionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
