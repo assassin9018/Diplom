@@ -96,6 +96,9 @@
     <Compile Include="Windows\User.xaml.cs">
       <DependentUpon>User.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\WorkingUnitWindow.xaml.cs">
+      <DependentUpon>WorkingUnitWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="Windows\AuthorizationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -137,6 +140,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\User.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\WorkingUnitWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
