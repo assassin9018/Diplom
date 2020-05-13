@@ -79,8 +79,8 @@
       <DependentUpon>Holyday.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Md5HashCreator.cs" />
-    <Compile Include="Windows\MainWorkForm.xaml.cs">
-      <DependentUpon>MainWorkForm.xaml</DependentUpon>
+    <Compile Include="Windows\PersonnelDepartmentWindow.xaml.cs">
+      <DependentUpon>PersonnelDepartmentWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Organization.xaml.cs">
       <DependentUpon>Organization.xaml</DependentUpon>
@@ -127,7 +127,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\MainWorkForm.xaml">
+    <Page Include="Windows\PersonnelDepartmentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

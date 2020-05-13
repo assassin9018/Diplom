@@ -17,9 +17,9 @@ namespace PersonnelDepartment.Windows
     /// <summary>
     /// Логика взаимодействия для MainWorkForm.xaml
     /// </summary>
-    public partial class MainWorkForm : Window
+    public partial class PersonnelDepartmentWindow : Window
     {
-        public MainWorkForm()
+        public PersonnelDepartmentWindow()
         {
             InitializeComponent();
         }
