@@ -57,8 +57,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DTO\BusinessTrip.cs" />
+    <Compile Include="DTO\City.cs" />
     <Compile Include="DTO\Education.cs" />
     <Compile Include="DTO\Employee.cs" />
+    <Compile Include="DTO\EmployeeExtended.cs" />
     <Compile Include="DTO\EmployeePosition.cs" />
     <Compile Include="DTO\Holyday.cs" />
     <Compile Include="DTO\Organization.cs" />

@@ -4,7 +4,7 @@ using System;
 namespace PersonnelDepartment.DTO
 {
     /// <summary>
-    /// Информация о работнике
+    /// Основная информация о работнике
     /// </summary>
     internal class Employee
     {
@@ -42,41 +42,6 @@ namespace PersonnelDepartment.DTO
         /// Дата рождения работника
         /// </summary>
         public DateTime Birthday { get; }
-
-        /// <summary>
-        /// Серия паспорта
-        /// </summary>
-        public string PassportSeria { get; }
-
-        /// <summary>
-        /// Номер паспорта
-        /// </summary>
-        public string PassportNumber { get; }
-
-        /// <summary>
-        /// Дата выдачи паспорта
-        /// </summary>
-        public string PassportDate { get; }
-
-        /// <summary>
-        /// Кем выдан паспорт
-        /// </summary>
-        public string PaspWho { get; }
-
-        /// <summary>
-        /// Код подразделения паспорта
-        /// </summary>
-        public string PassportCode { get; }
-
-        /// <summary>
-        /// Место проживания
-        /// </summary>
-        public string PlaceOfResidence { get; }
-
-        /// <summary>
-        /// Место регистрации
-        /// </summary>
-        public string PlaceOfRegistration { get; }
 
         public override string ToString() => Utils.GetShortName(Surname, Name, Patronymic);
     }
