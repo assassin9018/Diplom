@@ -23,5 +23,30 @@ namespace PersonnelDepartment.Windows
         {
             InitializeComponent();
         }
+
+        private void AddCityBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Enter_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddPositionBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddUnitBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
