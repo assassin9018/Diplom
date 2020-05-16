@@ -48,5 +48,10 @@ namespace PersonnelDepartment.Windows
         {
 
         }
+
+        private void AddEducationBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

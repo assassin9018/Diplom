@@ -109,8 +109,9 @@
             <TextBlock Grid.Row="1" Margin="20,0,0,20" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Количество детей"/>
             <TextBox Grid.Row="1" Margin="20,15,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Name="EmChildren"/>
 
-            <TextBlock Grid.Row="2" Margin="20,0,0,20" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Отчество"/>
-            <TextBox Grid.Row="2" Margin="20,15,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Name="EmEducation"/>
+            <TextBlock Grid.Row="2" Margin="20,0,0,20" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Образование"/>
+            <Button Grid.Row="2" Margin="20,15,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Content="+" Width="20" Name="AddEducationBtn" Click="AddEducationBtn_Click"/>
+            <ComboBox Grid.Row="2" Margin="45,15,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Name="EmEducation"/>
         </Grid>
 
         <Button Grid.Row="2" Grid.ColumnSpan="3" Margin="30,0,0,20" Width="80" VerticalAlignment="Bottom" HorizontalAlignment="Left" Content="Добавить" x:Name="Enter" Click="Enter_Click"/>
