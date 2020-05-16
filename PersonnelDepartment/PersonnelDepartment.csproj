@@ -59,6 +59,7 @@
     <Compile Include="DTO\BusinessTrip.cs" />
     <Compile Include="DTO\City.cs" />
     <Compile Include="DTO\Education.cs" />
+    <Compile Include="DTO\EducationType.cs" />
     <Compile Include="DTO\Employee.cs" />
     <Compile Include="DTO\EmployeeExtended.cs" />
     <Compile Include="DTO\EmployeePosition.cs" />
