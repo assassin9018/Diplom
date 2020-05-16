@@ -17,9 +17,9 @@ namespace PersonnelDepartment.Windows
     /// <summary>
     /// Логика взаимодействия для Employee.xaml
     /// </summary>
-    public partial class Employee : Window
+    public partial class EmployeeWindow : Window
     {
-        public Employee()
+        public EmployeeWindow()
         {
             InitializeComponent();
         }

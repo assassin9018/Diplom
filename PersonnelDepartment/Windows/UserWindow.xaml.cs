@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace PersonnelDepartment.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для City.xaml
+    /// Логика взаимодействия для User.xaml
     /// </summary>
-    public partial class City : Window
+    public partial class UserWindow : Window
     {
-        public City()
+        public UserWindow()
         {
             InitializeComponent();
         }

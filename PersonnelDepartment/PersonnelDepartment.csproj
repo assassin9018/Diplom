@@ -72,21 +72,21 @@
     <Compile Include="Windows\BusinessTripWindow.xaml.cs">
       <DependentUpon>BusinessTripWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\City.xaml.cs">
-      <DependentUpon>City.xaml</DependentUpon>
+    <Compile Include="Windows\CityWindow.xaml.cs">
+      <DependentUpon>CityWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Employee.xaml.cs">
-      <DependentUpon>Employee.xaml</DependentUpon>
+    <Compile Include="Windows\EmployeeWindow.xaml.cs">
+      <DependentUpon>EmployeeWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Holyday.xaml.cs">
-      <DependentUpon>Holyday.xaml</DependentUpon>
+    <Compile Include="Windows\HolydayWindow.xaml.cs">
+      <DependentUpon>HolydayWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Md5HashCreator.cs" />
     <Compile Include="Windows\PersonnelDepartmentWindow.xaml.cs">
       <DependentUpon>PersonnelDepartmentWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Organization.xaml.cs">
-      <DependentUpon>Organization.xaml</DependentUpon>
+    <Compile Include="Windows\OrganizationWindow.xaml.cs">
+      <DependentUpon>OrganizationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="RuStrings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -96,8 +96,8 @@
     <Compile Include="Windows\PositionWindow.xaml.cs">
       <DependentUpon>PositionWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\User.xaml.cs">
-      <DependentUpon>User.xaml</DependentUpon>
+    <Compile Include="Windows\UserWindow.xaml.cs">
+      <DependentUpon>UserWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\WorkingUnitWindow.xaml.cs">
       <DependentUpon>WorkingUnitWindow.xaml</DependentUpon>
@@ -118,15 +118,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\City.xaml">
+    <Page Include="Windows\CityWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\Employee.xaml">
+    <Page Include="Windows\EmployeeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\Holyday.xaml">
+    <Page Include="Windows\HolydayWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -134,7 +134,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\Organization.xaml">
+    <Page Include="Windows\OrganizationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -142,7 +142,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\User.xaml">
+    <Page Include="Windows\UserWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
