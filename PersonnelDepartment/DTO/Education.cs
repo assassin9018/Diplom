@@ -34,12 +34,4 @@
         /// </summary>
         public EducationType EducationType { get; }
     }
-
-    internal enum EducationType
-    {
-        Unknown = 0,
-        School,
-        College,
-        Institute
-    }
 }
