@@ -7,6 +7,24 @@
         mc:Ignorable="d"
         Title="Отдел кадров" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height = "25"/>
+            <RowDefinition Height = "1*"/>
+            <RowDefinition Height = "50"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Column="0" Grid.Row="1" Margin="5,5,5,5">
+            <DataGrid Margin="10,10,120,10" Name="EmployeesGrid" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Имя"  Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}" />
+                    <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}" />
+                    <DataGridTextColumn Header="Должность" Binding="{Binding Position}" />
+                    <DataGridTextColumn Header="Подразделение" Binding="{Binding Unit}" />
+                    <DataGridTextColumn Header="Дата рождения" Binding="{Binding BirthdayDate}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
         
     </Grid>
 </Window>

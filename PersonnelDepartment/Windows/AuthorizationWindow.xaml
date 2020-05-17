@@ -8,13 +8,19 @@
         Title="Авторизация" Height="250" Width="250" ResizeMode="CanMinimize">
     <Grid>
 
+        <Menu VerticalAlignment="Top">
+            <MenuItem Header="Сервис">
+                <MenuItem Header="Строка подключения" Name="ConnectionStringBtn" Click="ConnectionStringBtn_Click"/>
+            </MenuItem>
+        </Menu>
+
         <TextBlock Margin="75,0,0,100" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Логин"/>
-        <TextBox Margin="75,0,0,70" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100"/>
+        <TextBox Margin="75,0,0,70" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Name="Login"/>
 
         <TextBlock Margin="75,0,0,40" VerticalAlignment="Center" HorizontalAlignment="Left"  Text="Пароль"/>
-        <PasswordBox Margin="75,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100"/>
+        <PasswordBox Margin="75,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Name="Password"/>
 
-        <Button Margin="25,70,0,0" Width="80" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Войти" x:Name="Enter"/>
-        <Button Margin="0,70,25,0" Width="80" VerticalAlignment="Center" HorizontalAlignment="Right" Content="Выйти" x:Name="Exit"/>
+        <Button Margin="25,70,0,0" Width="80" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Войти" x:Name="Enter" Click="Enter_Click"/>
+        <Button Margin="0,70,25,0" Width="80" VerticalAlignment="Center" HorizontalAlignment="Right" Content="Выйти" x:Name="Exit" Click="Exit_Click"/>
     </Grid>
 </Window>

@@ -18,19 +18,19 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="1" Margin="75,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Работник"/>
-        <ComboBox Grid.Row="1" Margin="75,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100"/>
+        <ComboBox Grid.Row="1" Margin="75,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Name="Employee"/>
 
         <TextBlock Grid.Row="2" Margin="75,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Организация"/>
-        <ComboBox Grid.Row="2" Margin="75,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100"/>
+        <ComboBox Grid.Row="2" Margin="75,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Name="Organization"/>
         <Button Grid.Row="2" Margin="50,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Content="+" Width="20" Name="AddOrganizationBtn"/>
 
         <TextBlock Grid.Row="3" Margin="75,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"  Text="Начало Командировки"/>
-        <DatePicker Grid.Row="3" Margin="75,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100"/>
+        <DatePicker Grid.Row="3" Margin="75,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Name="StartDate"/>
 
         <TextBlock Grid.Row="4" Margin="75,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"  Text="Конец командировки"/>
-        <DatePicker Grid.Row="4" Margin="75,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100"/>
+        <DatePicker Grid.Row="4" Margin="75,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Name="EndDate"/>
 
-        <Button Grid.Row="100" Margin="25,0,0,0" Width="80" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Отправить" x:Name="Enter"/>
-        <Button Grid.Row="100" Margin="0,0,25,0" Width="80" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Отмена" x:Name="Exit"/>
+        <Button Grid.Row="100" Margin="25,0,0,0" Width="80" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Отправить" x:Name="Enter" Click="Enter_Click"/>
+        <Button Grid.Row="100" Margin="0,0,25,0" Width="80" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Отмена" x:Name="Exit" Click="Exit_Click"/>
     </Grid>
 </Window>

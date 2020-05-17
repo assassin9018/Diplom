@@ -67,6 +67,8 @@
     <Compile Include="DTO\Organization.cs" />
     <Compile Include="DTO\User.cs" />
     <Compile Include="DTO\WorkingUnit.cs" />
+    <Compile Include="Helpers\ConnectionFactory.cs" />
+    <Compile Include="Helpers\ThrowHelper.cs" />
     <Compile Include="Helpers\Utils.cs" />
     <Compile Include="Helpers\Validator.cs" />
     <Compile Include="Windows\BusinessTripWindow.xaml.cs">
@@ -74,6 +76,9 @@
     </Compile>
     <Compile Include="Windows\CityWindow.xaml.cs">
       <DependentUpon>CityWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ConnStringEditorWindow.xaml.cs">
+      <DependentUpon>ConnStringEditorWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\EmployeeWindow.xaml.cs">
       <DependentUpon>EmployeeWindow.xaml</DependentUpon>
@@ -119,6 +124,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\CityWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ConnStringEditorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

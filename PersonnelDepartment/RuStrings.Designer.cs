@@ -61,6 +61,24 @@ namespace PersonnelDepartment {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Не задана строка для подключения.
+        /// </summary>
+        internal static string ConnStringNotSet {
+            get {
+                return ResourceManager.GetString("ConnStringNotSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Для подключения не может использоваться пустая строка.
+        /// </summary>
+        internal static string EmptyConnString {
+            get {
+                return ResourceManager.GetString("EmptyConnString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на На форме  указаны некорректные данные..
         /// </summary>
         internal static string InvalidData {

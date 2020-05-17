@@ -8,15 +8,15 @@
         Title="Организация" Height="250" Width="250" ResizeMode="NoResize">
     <Grid>
         <TextBlock Margin="75,0,0,125" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Название"/>
-        <TextBox Margin="75,0,0,90" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100"/>
+        <TextBox Margin="75,0,0,90" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Name="OrganizationName"/>
 
         <TextBlock Margin="75,0,0,55" VerticalAlignment="Center" HorizontalAlignment="Left"  Text="Город"/>
-        <ComboBox Margin="75,0,0,15" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100"/>
+        <ComboBox Margin="75,0,0,15" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Name="City"/>
 
         <TextBlock Margin="75,20,0,0" VerticalAlignment="Center" HorizontalAlignment="Left"  Text="Адресс"/>
-        <TextBox Margin="75,60,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100"/>
+        <TextBox Margin="75,60,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Name="Address"/>
 
-        <Button Margin="25,110,0,0" Width="80" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Добавить" x:Name="Enter"/>
-        <Button Margin="0,110,25,0" Width="80" VerticalAlignment="Center" HorizontalAlignment="Right" Content="Отменить" x:Name="Exit"/>
+        <Button Margin="25,110,0,0" Width="80" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Добавить" x:Name="Enter" Click="Enter_Click"/>
+        <Button Margin="0,110,25,0" Width="80" VerticalAlignment="Center" HorizontalAlignment="Right" Content="Отменить" x:Name="Exit" Click="Exit_Click"/>
     </Grid>
 </Window>

@@ -15,23 +15,13 @@ using System.Windows.Shapes;
 namespace PersonnelDepartment.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для PositionWindow.xaml
+    /// Логика взаимодействия для ConnStringEditorWindow.xaml
     /// </summary>
-    public partial class PositionWindow : Window
+    public partial class ConnStringEditorWindow : Window
     {
-        public PositionWindow()
+        public ConnStringEditorWindow()
         {
             InitializeComponent();
-        }
-
-        private void Enter_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Exit_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

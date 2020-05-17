@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PersonnelDepartment.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,14 @@ namespace PersonnelDepartment.Windows
         public PersonnelDepartmentWindow()
         {
             InitializeComponent();
+        }
+
+        internal PersonnelDepartmentWindow(User user) : this()
+        {
+            var wu = new WorkingUnit(10, "Прогеры");
+            var p = new EmployeePosition(25, "Джун");
+            var em = new Employee(1,"Иванов", "Иван", "Иванович", p, wu, DateTime.MinValue);
+            EmployeesGrid.Items.Add(em);
         }
     }
 }
