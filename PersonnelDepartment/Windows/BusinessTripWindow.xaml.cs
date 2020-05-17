@@ -33,5 +33,11 @@ namespace PersonnelDepartment.Windows
         {
 
         }
+
+        private void AddOrganizationBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var frm = new OrganizationWindow();
+            frm.ShowDialog();
+        }
     }
 }

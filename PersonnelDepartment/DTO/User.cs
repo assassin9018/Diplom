@@ -38,6 +38,7 @@
         BusinessTrip = 1 << 3,
         AddInnerInfo = 1 << 4,
         EditEmInfo = 1 << 5,
-        AddUsers = 1 << 6
+        AddUsers = 1 << 6,
+        All = 0b111_1111
     }
 }

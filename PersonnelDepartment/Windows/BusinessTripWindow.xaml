@@ -22,7 +22,7 @@
 
         <TextBlock Grid.Row="2" Margin="75,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Организация"/>
         <ComboBox Grid.Row="2" Margin="75,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Name="Organization"/>
-        <Button Grid.Row="2" Margin="50,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Content="+" Width="20" Name="AddOrganizationBtn"/>
+        <Button Grid.Row="2" Margin="50,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Content="+" Width="20" Name="AddOrganizationBtn" Click="AddOrganizationBtn_Click"/>
 
         <TextBlock Grid.Row="3" Margin="75,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"  Text="Начало Командировки"/>
         <DatePicker Grid.Row="3" Margin="75,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Name="StartDate"/>

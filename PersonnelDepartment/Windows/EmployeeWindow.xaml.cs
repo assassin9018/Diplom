@@ -24,11 +24,6 @@ namespace PersonnelDepartment.Windows
             InitializeComponent();
         }
 
-        private void AddCityBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Enter_Click(object sender, RoutedEventArgs e)
         {
 
@@ -39,19 +34,28 @@ namespace PersonnelDepartment.Windows
 
         }
 
+        private void AddCityBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var frm = new CityWindow();
+            frm.ShowDialog();
+        }
+
         private void AddPositionBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            var frm = new PositionWindow();
+            frm.ShowDialog();
         }
 
         private void AddUnitBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            var frm = new WorkingUnitWindow();
+            frm.ShowDialog();
         }
 
         private void AddEducationBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            var frm = new EducationWindow();
+            frm.ShowDialog();
         }
     }
 }

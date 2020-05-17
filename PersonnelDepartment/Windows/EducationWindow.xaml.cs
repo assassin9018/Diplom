@@ -36,17 +36,20 @@ namespace PersonnelDepartment.Windows
 
         private void AddCityBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            var frm = new CityWindow();
+            frm.ShowDialog();
         }
 
         private void AddEduTypeBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            var frm = new EducationTypeWindow();
+            frm.ShowDialog();
         }
 
         private void AddSpecialtyBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            var frm = new SpecialtyWindow();
+            frm.ShowDialog();
         }
     }
 }
