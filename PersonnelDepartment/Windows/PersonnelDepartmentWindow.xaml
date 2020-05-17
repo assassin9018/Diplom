@@ -35,7 +35,7 @@
                     <ContextMenu>
                         <MenuItem  Header="Подробнее" Name="ExtendedEmploee" Click="ExtendedEmploee_Click"/>
                         <MenuItem  Header="В командировку" Name="AddTrip" Click="AddTrip_Click"/>
-                        <MenuItem  Header="В отпуск" Name="AddHoluday" Click="AddHoluday_Click"/>
+                        <MenuItem  Header="В отпуск" Name="AddHolyday" Click="AddHolyday_Click"/>
                         <MenuItem  Header="Уволить" Name="DelEmploee" Click="DelEmploee_Click"/>
                     </ContextMenu>
                 </DataGrid.ContextMenu>

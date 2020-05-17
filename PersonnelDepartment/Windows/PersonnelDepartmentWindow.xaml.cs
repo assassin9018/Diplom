@@ -39,27 +39,31 @@ namespace PersonnelDepartment.Windows
 
         private void ExtendedEmploee_Click(object sender, RoutedEventArgs e)
         {
-
+            var frm = new EmployeeWindow();
+            frm.ShowDialog();
         }
 
-        private void AddHoluday_Click(object sender, RoutedEventArgs e)
+        private void AddHolyday_Click(object sender, RoutedEventArgs e)
         {
-
+            var frm = new HolydayWindow();
+            frm.ShowDialog();
         }
 
         private void AddEmploee_Click(object sender, RoutedEventArgs e)
         {
-
+            var frm = new EmployeeWindow();
+            frm.ShowDialog();
         }
 
         private void DelEmploee_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Ты уволен!!!!");
         }
 
         private void AddTrip_Click(object sender, RoutedEventArgs e)
         {
-
+            var frm = new BusinessTripWindow();
+            frm.ShowDialog();
         }
     }
 }
