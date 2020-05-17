@@ -43,6 +43,21 @@ namespace PersonnelDepartment.DTO
         /// </summary>
         public DateTime Birthday { get; }
 
+        public string BirthdayDate => Birthday.ToLongDateString();
+
+
+        public Employee(int id, string surname, string name, string patronymic, EmployeePosition position, WorkingUnit unit, DateTime birthday)
+        {
+            Id = id;
+            Surname = surname;
+            Name = name;
+            Patronymic = patronymic;
+            Position = position;
+            Unit = unit;
+            Birthday = birthday;
+        }
+
+
         public override string ToString() => Utils.GetShortName(Surname, Name, Patronymic);
     }
 }

@@ -5,6 +5,7 @@
     /// </summary>
     internal class WorkingUnit
     {
+
         /// <summary>
         /// Id записи в БД.
         /// </summary>
@@ -13,6 +14,12 @@
         /// Подразделение
         /// </summary>
         public string Name { get; }
+
+        public WorkingUnit(int id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
 
         public override string ToString() => Name;
     }

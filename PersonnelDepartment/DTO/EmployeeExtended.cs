@@ -1,10 +1,18 @@
-﻿namespace PersonnelDepartment.DTO
+﻿using System;
+using System.Collections.Generic;
+
+namespace PersonnelDepartment.DTO
 {
     /// <summary>
     /// Полная информация о работнике
     /// </summary>
     internal class EmployeeExtended : Employee
     {
+        public EmployeeExtended(int id, string surname, string name, string patronymic, EmployeePosition position, WorkingUnit unit, DateTime birthday) 
+            : base(id, surname, name, patronymic, position, unit, birthday)
+        {
+        }
+
         #region Паспортные данные
 
         /// <summary>
@@ -60,7 +68,7 @@
         /// Образование
         /// </summary>
         public Education Education { get; }
-        
+
         #endregion
     }
 }

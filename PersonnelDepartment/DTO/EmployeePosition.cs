@@ -14,6 +14,12 @@
         /// </summary>
         public string Name { get; }
 
+        public EmployeePosition(int id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
+
         public override string ToString() => Name;
     }
 }
