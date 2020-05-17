@@ -31,6 +31,35 @@ namespace PersonnelDepartment.Windows
             var p = new EmployeePosition(25, "Джун");
             var em = new Employee(1,"Иванов", "Иван", "Иванович", p, wu, DateTime.MinValue);
             EmployeesGrid.Items.Add(em);
+            wu = new WorkingUnit(10, "Тестеры");
+            p = new EmployeePosition(25, "Мидл");
+            em = new Employee(1, "Петров", "Пётр", "Петрович", p, wu, DateTime.MaxValue);
+            EmployeesGrid.Items.Add(em);
+        }
+
+        private void ExtendedEmploee_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddHoluday_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddEmploee_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DelEmploee_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddTrip_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
