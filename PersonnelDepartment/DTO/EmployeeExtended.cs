@@ -23,12 +23,12 @@ namespace PersonnelDepartment.DTO
         /// <summary>
         /// Номер паспорта
         /// </summary>
-        public string PassportNumber { get; }
+        public long PassportNumber { get; }
 
         /// <summary>
         /// Дата выдачи паспорта
         /// </summary>
-        public string PassportDate { get; }
+        public DateTime PassportDate { get; }
 
         /// <summary>
         /// Кем выдан паспорт
@@ -38,7 +38,7 @@ namespace PersonnelDepartment.DTO
         /// <summary>
         /// Код подразделения паспорта
         /// </summary>
-        public string PassportCode { get; }
+        public long PassportCode { get; }
 
         /// <summary>
         /// Место проживания
