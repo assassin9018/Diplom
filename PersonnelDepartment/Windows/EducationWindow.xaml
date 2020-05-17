@@ -1,0 +1,39 @@
+﻿<Window x:Class="PersonnelDepartment.Windows.EducationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PersonnelDepartment.Windows"
+        mc:Ignorable="d"
+        Title="Образование" Height="300" Width="250" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="1" Margin="75,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Учебное заведение"/>
+        <TextBox Grid.Row="1" Margin="75,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Name="Institute"/>
+
+        <TextBlock Grid.Row="2" Margin="75,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"  Text="Город учебного заведения"/>
+        <Button Grid.Row="2" Margin="50,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Content="+" Width="20" Name="AddCityBtn" Click="AddCityBtn_Click"/>
+        <ComboBox Grid.Row="2" Margin="75,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Name="City"/>
+
+        <TextBlock Grid.Row="3" Margin="75,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"  Text="Тип образования"/>
+        <Button Grid.Row="3" Margin="50,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Content="+" Width="20" Name="AddEduTypeBtn" Click="AddEduTypeBtn_Click"/>
+        <ComboBox Grid.Row="3" Margin="75,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Name="EducationType"/>
+
+        <TextBlock Grid.Row="4" Margin="75,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"  Text="Специальность"/>
+        <Button Grid.Row="4" Margin="50,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Content="+" Width="20" Name="AddSpecialtyBtn" Click="AddSpecialtyBtn_Click"/>
+        <ComboBox Grid.Row="4" Margin="75,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Name="Specialty"/>
+
+        <Button Grid.Row="6" Margin="25,0,0,0" Width="80" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Оформить" x:Name="Enter" Click="Enter_Click"/>
+        <Button Grid.Row="6" Margin="0,0,25,0" Width="80" VerticalAlignment="Center" HorizontalAlignment="Right" Content="Отмена" x:Name="Exit" Click="Exit_Click"/>
+    </Grid>
+</Window>
