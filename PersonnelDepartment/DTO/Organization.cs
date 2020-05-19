@@ -1,28 +1,28 @@
-﻿namespace PersonnelDepartment.DTO
+﻿using System.Data.SqlClient;
+
+namespace PersonnelDepartment.DTO
 {
     /// <summary>
     /// Информация об организации
     /// </summary>
-    internal class Organization
+    internal class Organization : OrganizationBase
     {
-        /// <summary>
-        /// Id записи в БД.
-        /// </summary>
-        public int Id { get; }
+        private const string CAddress = Prefix + "Address";
 
         /// <summary>
-        /// Наименование организации
+        /// Адрес организации
         /// </summary>
-        public string Name { get; }
+        public string Address { get; }
 
         /// <summary>
         /// Город
         /// </summary>
         public City City { get; }
 
-        /// <summary>
-        /// Адрес организации
-        /// </summary>
-        public string Address { get; }
+        public Organization(SqlDataReader reader) : base(reader)
+        {
+            Address = reader.GetString(reader.GetOrdinal(CAddress));
+            City = new City(reader);
+        }
     }
 }

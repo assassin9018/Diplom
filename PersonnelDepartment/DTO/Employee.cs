@@ -1,32 +1,15 @@
 ﻿using PersonnelDepartment.Helpers;
 using System;
+using System.Data.SqlClient;
 
 namespace PersonnelDepartment.DTO
 {
     /// <summary>
     /// Основная информация о работнике
     /// </summary>
-    internal class Employee
+    internal class Employee : EmployeeBase
     {
-        /// <summary>
-        /// Id записи в БД.
-        /// </summary>
-        public int Id { get; }
-        
-        /// <summary>
-        /// Фамилия
-        /// </summary>
-        public string Surname { get; }
-        
-        /// <summary>
-        /// Имя
-        /// </summary>
-        public string Name { get; }
-        
-        /// <summary>
-        /// Отчество(может быть null)
-        /// </summary>
-        public string Patronymic { get; }
+        private const string CBirthday = Prefix + "Birthday";
 
         /// <summary>
         /// Должность работника
@@ -45,19 +28,19 @@ namespace PersonnelDepartment.DTO
 
         public string BirthdayDate => Birthday.ToLongDateString();
 
-
         public Employee(int id, string surname, string name, string patronymic, EmployeePosition position, WorkingUnit unit, DateTime birthday)
+            :base(id, surname, name, patronymic)
         {
-            Id = id;
-            Surname = surname;
-            Name = name;
-            Patronymic = patronymic;
             Position = position;
             Unit = unit;
             Birthday = birthday;
         }
 
-
-        public override string ToString() => Utils.GetShortName(Surname, Name, Patronymic);
+        public Employee(SqlDataReader reader) : base(reader)
+        {
+            Birthday = reader.GetDateTime(reader.GetOrdinal(CBirthday));
+            Position = new EmployeePosition(reader);
+            Unit = new WorkingUnit(reader);
+        }
     }
 }

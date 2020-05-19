@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 
 namespace PersonnelDepartment.DTO
 {
@@ -7,18 +8,23 @@ namespace PersonnelDepartment.DTO
     /// </summary>
     internal class BusinessTrip
     {
+        private const string Prefix = "Ct";
+        private const string CId = Prefix + "Id";
+        private const string CBeginDate = Prefix + "BeginDate";
+        private const string CEndDate = Prefix + "EndDate";
+
         /// <summary>
         /// Id записи в БД.
         /// </summary>
         public int Id { get; }
         /// <summary>
-        /// Короткое имя работника
+        /// Базовая информация о работнике по его карточке
         /// </summary>
-        public string Employee { get; }
+        public EmployeeBase Employee { get; }
         /// <summary>
-        /// Наименование организации
+        /// Информация об организации
         /// </summary>
-        public string Organization { get; }
+        public OrganizationBase Organization { get; }
         /// <summary>
         /// Дата начала командировки
         /// </summary>
@@ -27,13 +33,31 @@ namespace PersonnelDepartment.DTO
         /// Дата окончания командировки
         /// </summary>
         public DateTime EndDate { get; }
-        /// <summary>
-        /// Id организации
-        /// </summary>
-        public int OrganizationId { get; }
-        /// <summary>
-        /// Id записи работника в командировке
-        /// </summary>
-        public int EmployeeId { get; }
+
+        public BusinessTrip(SqlDataReader reader)
+        {
+            Id = reader.GetInt32(reader.GetOrdinal(CId));
+            BeginDate = reader.GetDateTime(reader.GetOrdinal(CBeginDate));
+            EndDate = reader.GetDateTime(reader.GetOrdinal(CEndDate));
+            Employee = new EmployeeBase(reader);
+            Organization = new OrganizationBase(reader);
+        }
+
+        public BusinessTrip(int id, EmployeeBase employee, Organization organization, DateTime beginDate, DateTime endDate)
+        {
+            Id = id;
+            Employee = employee;
+            Organization = organization;
+            BeginDate = beginDate;
+            EndDate = endDate;
+        }
+
+        public BusinessTrip(EmployeeBase employee, Organization organization, DateTime beginDate, DateTime endDate)
+        {
+            Employee = employee;
+            Organization = organization;
+            BeginDate = beginDate;
+            EndDate = endDate;
+        }
     }
 }

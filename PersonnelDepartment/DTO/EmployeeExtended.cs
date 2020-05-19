@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Data.SqlClient;
 
 namespace PersonnelDepartment.DTO
 {
@@ -8,10 +8,19 @@ namespace PersonnelDepartment.DTO
     /// </summary>
     internal class EmployeeExtended : Employee
     {
-        public EmployeeExtended(int id, string surname, string name, string patronymic, EmployeePosition position, WorkingUnit unit, DateTime birthday) 
-            : base(id, surname, name, patronymic, position, unit, birthday)
-        {
-        }
+        #region Псевдонимы столбцов
+
+        private const string CPassportSeria = Prefix + "PassportSeria";
+        private const string CPassportNumber = Prefix + "PassportNumber";
+        private const string CPassportDate = Prefix + "PassportDate";
+        private const string CPaspWho = Prefix + "PaspWho";
+        private const string CPassportCode = Prefix + "PassportCode";
+        private const string CPlaceOfResidence = Prefix + "PlaceOfResidence";
+        private const string CPlaceOfRegistration = Prefix + "PlaceOfRegistration";
+        private const string CIsMarried = Prefix + "IsMarried";
+        private const string CChildrenCount = Prefix + "ChildrenCount";
+
+        #endregion
 
         #region Паспортные данные
 
@@ -41,9 +50,19 @@ namespace PersonnelDepartment.DTO
         public long PassportCode { get; }
 
         /// <summary>
+        /// Город проживания
+        /// </summary>
+        public City CityOfResidence { get; set; }
+
+        /// <summary>
         /// Место проживания
         /// </summary>
         public string PlaceOfResidence { get; }
+
+        /// <summary>
+        /// Город регистрации
+        /// </summary>
+        public City CityOfRegistration { get; set; }
 
         /// <summary>
         /// Место регистрации
@@ -70,5 +89,29 @@ namespace PersonnelDepartment.DTO
         public Education Education { get; }
 
         #endregion
+
+        /// <summary>
+        /// Не использовать
+        /// </summary>
+        private EmployeeExtended()
+            : base(default, default, default, default, default, default, default)
+        {
+            throw new NotImplementedException();
+        }
+
+        public EmployeeExtended(SqlDataReader reader) : base(reader)
+        {
+            PassportSeria = reader.GetString(reader.GetOrdinal(CPassportSeria)).Trim();
+            PassportNumber = reader.GetInt64(reader.GetOrdinal(CPassportNumber));
+            PassportDate = reader.GetDateTime(reader.GetOrdinal(CPassportDate));
+            PaspWho = reader.GetString(reader.GetOrdinal(CPaspWho)).Trim();
+            PassportCode = reader.GetInt64(reader.GetOrdinal(CPassportCode));
+            PlaceOfResidence = reader.GetString(reader.GetOrdinal(CPlaceOfResidence)).Trim();
+            PlaceOfRegistration = reader.GetString(reader.GetOrdinal(CPlaceOfRegistration)).Trim();
+
+            IsMarried = reader.GetBoolean(reader.GetOrdinal(CIsMarried));
+            ChildrenCount = reader.GetInt32(reader.GetOrdinal(CChildrenCount));
+            Education = new Education(reader);
+        }
     }
 }

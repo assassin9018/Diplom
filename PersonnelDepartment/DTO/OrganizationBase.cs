@@ -2,12 +2,9 @@
 
 namespace PersonnelDepartment.DTO
 {
-    /// <summary>
-    /// Подразделение
-    /// </summary>
-    internal class WorkingUnit
+    internal class OrganizationBase
     {
-        private const string Prefix = "Wu";
+        protected const string Prefix = "Or";
         private const string CId = Prefix + "Id";
         private const string CName = Prefix + "Name";
 
@@ -15,21 +12,16 @@ namespace PersonnelDepartment.DTO
         /// Id записи в БД.
         /// </summary>
         public int Id { get; }
+
         /// <summary>
-        /// Подразделение
+        /// Наименование организации
         /// </summary>
         public string Name { get; }
 
-        public WorkingUnit(int id, string name)
-        {
-            Id = id;
-            Name = name;
-        }
-
-        public WorkingUnit(SqlDataReader reader)
+        public OrganizationBase(SqlDataReader reader)
         {
             Id = reader.GetInt32(reader.GetOrdinal(CId));
-            Name = reader.GetString(reader.GetOrdinal(CName));
+            Name = reader.GetString(reader.GetOrdinal(CName)).Trim();
         }
 
         public override string ToString() => Name;

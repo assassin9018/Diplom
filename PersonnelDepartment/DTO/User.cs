@@ -1,10 +1,17 @@
-﻿namespace PersonnelDepartment.DTO
+﻿using System.Data.SqlClient;
+
+namespace PersonnelDepartment.DTO
 {
     /// <summary>
     /// Информация о пользователе
     /// </summary>
     internal class User
     {
+        private const string Prefix = "Us";
+        private const string CId = Prefix + "Id";
+        private const string CLogin = Prefix + "Login";
+        private const string CPassword = Prefix + "Password";
+        private const string CPermissions = Prefix + "Permissions";
         /// <summary>
         /// Id записи в БД.
         /// </summary>
@@ -18,15 +25,20 @@
         /// </summary>
         public string Password { get; }
         /// <summary>
-        /// Id личной карточки
+        /// Базовая информация о пользователе из личной карточки
         /// </summary>
-        public string EmployeeId { get; }
-        /// <summary>
-        /// Сокращенное имя пользователя.
-        /// </summary>
-        public string ShortName { get; }
+        public EmployeeBase Employee { get; }
 
         public Permissions Permissions { get; }
+
+        public User(SqlDataReader reader)
+        {
+            Id = reader.GetInt32(reader.GetOrdinal(CId));
+            Login = reader.GetString(reader.GetOrdinal(CLogin)).Trim();
+            Password = reader.GetString(reader.GetOrdinal(CPassword)).Trim();
+            Permissions = (Permissions)reader.GetInt32(reader.GetOrdinal(CPermissions));
+            Employee = new EmployeeBase(reader);
+        }
     }
 
     public enum Permissions
