@@ -1,5 +1,4 @@
-﻿using PersonnelDepartment.Helpers;
-using System;
+﻿using System;
 using System.Data.SqlClient;
 
 namespace PersonnelDepartment.DTO
@@ -15,7 +14,7 @@ namespace PersonnelDepartment.DTO
         /// Должность работника
         /// </summary>
         public EmployeePosition Position { get; }
-        
+
         /// <summary>
         /// Подразделение в котором работает работник
         /// </summary>
@@ -29,7 +28,7 @@ namespace PersonnelDepartment.DTO
         public string BirthdayDate => Birthday.ToLongDateString();
 
         public Employee(int id, string surname, string name, string patronymic, EmployeePosition position, WorkingUnit unit, DateTime birthday)
-            :base(id, surname, name, patronymic)
+            : base(id, surname, name, patronymic)
         {
             Position = position;
             Unit = unit;
