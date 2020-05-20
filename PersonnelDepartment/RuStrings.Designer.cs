@@ -95,5 +95,14 @@ namespace PersonnelDepartment {
                 return ResourceManager.GetString("QueryError", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Не удалось найти запись. Id - {0}, таблица - &apos;{1}&apos;..
+        /// </summary>
+        internal static string RowNotFound {
+            get {
+                return ResourceManager.GetString("RowNotFound", resourceCulture);
+            }
+        }
     }
 }

@@ -129,4 +129,7 @@
   <data name="QueryError" xml:space="preserve">
     <value>Во время выполнения запроса произошла ошибка. Проверьте подключение к базе данных.</value>
   </data>
+  <data name="RowNotFound" xml:space="preserve">
+    <value>Не удалось найти запись. Id - {0}, таблица - '{1}'.</value>
+  </data>
 </root>
