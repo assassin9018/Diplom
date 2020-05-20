@@ -85,6 +85,32 @@ namespace PersonnelDepartment.Helpers.Db
             return resultValue;
         }
 
+        public static EducationType GetEducationType(int rowId)
+        {
+            const string sqlExpression = "GetEducationTypeById";
+            EducationType resultValue = null;
+
+            using(SqlConnection connection = ConnectionFactory.GetSqlConnection())
+            {
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                // указываем, что команда представляет хранимую процедуру
+                command.CommandType = CommandType.StoredProcedure;
+                // параметр для ввода идентификатора
+                SqlParameter nameParam = new SqlParameter("@RowId", rowId);
+                // добавляем параметр
+                command.Parameters.Add(nameParam);
+
+                //если запись найдена, то читаем её и создаём запрошенный объект
+                using(var reader = command.ExecuteReader())
+                    if(reader.HasRows && reader.Read())
+                        resultValue = new EducationType(reader);
+                    else
+                        throw new InvalidOperationException(string.Format(RuStrings.RowNotFound, rowId, nameof(EducationType)));
+            }
+
+            return resultValue;
+        }
+
         public static Employee GetEmployee(int rowId)
         {
             throw new NotImplementedException();
