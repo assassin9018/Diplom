@@ -104,7 +104,7 @@ namespace PersonnelDepartment.Helpers.Db
             }
         }
 
-        public static IEnumerable<Holyday> ReadHolydays()
+        public static IEnumerable<Holiday> ReadHolydays()
         {
             using(var connection = ConnectionFactory.GetSqlConnection())
             {
@@ -113,7 +113,7 @@ namespace PersonnelDepartment.Helpers.Db
                 {
                     if(reader.HasRows)
                         while(reader.Read())
-                            yield return new Holyday(reader);
+                            yield return new Holiday(reader);
                 }
             }
         }

@@ -165,10 +165,10 @@ namespace PersonnelDepartment.Helpers.Db
             return resultValue;
         }
 
-        public static Holyday GetHolyday(int rowId)
+        public static Holiday GetHolyday(int rowId)
         {
             const string sqlExpression = "HolydayById";
-            Holyday resultValue = null;
+            Holiday resultValue = null;
 
             using(SqlConnection connection = ConnectionFactory.GetSqlConnection())
             {
@@ -183,9 +183,9 @@ namespace PersonnelDepartment.Helpers.Db
                 //если запись найдена, то читаем её и создаём запрошенный объект
                 using(var reader = command.ExecuteReader())
                     if(reader.HasRows && reader.Read())
-                        resultValue = new Holyday(reader);
+                        resultValue = new Holiday(reader);
                     else
-                        throw new InvalidOperationException(string.Format(RuStrings.RowNotFound, rowId, nameof(Holyday)));
+                        throw new InvalidOperationException(string.Format(RuStrings.RowNotFound, rowId, nameof(Holiday)));
             }
 
             return resultValue;

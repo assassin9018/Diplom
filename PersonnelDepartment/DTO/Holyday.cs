@@ -6,7 +6,7 @@ namespace PersonnelDepartment.DTO
     /// <summary>
     /// Информация об отпуске
     /// </summary>
-    internal class Holyday : ITableRow
+    internal class Holiday : ITableRow
     {
         private const string Prefix = "Hd";
         private const string CId = Prefix + "Id";
@@ -35,7 +35,7 @@ namespace PersonnelDepartment.DTO
         /// </summary>
         public bool IsPaid { get; }
 
-        public Holyday(SqlDataReader reader)
+        public Holiday(SqlDataReader reader)
         {
             Id = reader.GetInt32(reader.GetOrdinal(CId));
             BeginDate = reader.GetDateTime(reader.GetOrdinal(CBeginDate));
