@@ -39,6 +39,14 @@ namespace PersonnelDepartment.DTO
             Permissions = (Permissions)reader.GetInt32(reader.GetOrdinal(CPermissions));
             Employee = new EmployeeBase(reader);
         }
+
+        public User(string login, string password, EmployeeBase employee, Permissions permissions)
+        {
+            Login = login;
+            Password = password;
+            Employee = employee;
+            Permissions = permissions;
+        }
     }
 
     public enum Permissions
