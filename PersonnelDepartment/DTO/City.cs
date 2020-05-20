@@ -2,7 +2,7 @@
 
 namespace PersonnelDepartment.DTO
 {
-    class City
+    internal class City : ITableRow
     {
         private const string Prefix = "Ct";
         private const string CId = Prefix + "Id";

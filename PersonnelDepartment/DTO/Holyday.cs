@@ -6,7 +6,7 @@ namespace PersonnelDepartment.DTO
     /// <summary>
     /// Информация об отпуске
     /// </summary>
-    internal class Holyday
+    internal class Holyday : ITableRow
     {
         private const string Prefix = "Hd";
         private const string CId = Prefix + "Id";

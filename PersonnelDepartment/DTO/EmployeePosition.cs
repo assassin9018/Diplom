@@ -5,7 +5,7 @@ namespace PersonnelDepartment.DTO
     /// <summary>
     /// Должность работника
     /// </summary>
-    internal class EmployeePosition
+    internal class EmployeePosition : ITableRow
     {
         private const string Prefix = "Ep";
         private const string CId = Prefix + "Id";

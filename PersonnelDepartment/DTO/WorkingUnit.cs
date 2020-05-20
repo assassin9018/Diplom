@@ -5,7 +5,7 @@ namespace PersonnelDepartment.DTO
     /// <summary>
     /// Подразделение
     /// </summary>
-    internal class WorkingUnit
+    internal class WorkingUnit : ITableRow
     {
         private const string Prefix = "Wu";
         private const string CId = Prefix + "Id";

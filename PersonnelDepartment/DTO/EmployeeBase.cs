@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 
 namespace PersonnelDepartment.DTO
 {
-    class EmployeeBase
+    internal class EmployeeBase : ITableRow
     {
         protected const string Prefix = "Em";
         private const string CId = Prefix + "Id";

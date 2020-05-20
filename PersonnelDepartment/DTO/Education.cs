@@ -5,7 +5,7 @@ namespace PersonnelDepartment.DTO
     /// <summary>
     /// Информация об образовании
     /// </summary>
-    internal class Education
+    internal class Education : ITableRow
     {
         private const string Prefix = "Ed";
         private const string CId = Prefix + "Id";

@@ -6,7 +6,7 @@ namespace PersonnelDepartment.DTO
     /// <summary>
     /// Информация о командировке
     /// </summary>
-    internal class BusinessTrip
+    internal class BusinessTrip : ITableRow
     {
         private const string Prefix = "Ct";
         private const string CId = Prefix + "Id";

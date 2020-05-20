@@ -2,7 +2,7 @@
 
 namespace PersonnelDepartment.DTO
 {
-    internal class OrganizationBase
+    internal class OrganizationBase : ITableRow
     {
         protected const string Prefix = "Or";
         private const string CId = Prefix + "Id";

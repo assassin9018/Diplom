@@ -5,7 +5,7 @@ namespace PersonnelDepartment.DTO
     /// <summary>
     /// Информация о пользователе
     /// </summary>
-    internal class User
+    internal class User : ITableRow
     {
         private const string Prefix = "Us";
         private const string CId = Prefix + "Id";
