@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PersonnelDepartment.Helpers;
+using PersonnelDepartment.Helpers.Db;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,16 @@ namespace PersonnelDepartment.Windows
         public EmployeeWindow()
         {
             InitializeComponent();
+            UpdateDbData();
+        }
+
+        private void UpdateDbData()
+        {
+            foreach(var city in DbReader.ReadCities())
+            {
+                EmCityOfRegistration.Items.Add(city);
+                EmCityOfResidence.Items.Add(city);
+            }
         }
 
         private void Enter_Click(object sender, RoutedEventArgs e)

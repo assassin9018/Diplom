@@ -1,4 +1,6 @@
 ﻿using PersonnelDepartment.DTO;
+using PersonnelDepartment.Helpers;
+using System.IO;
 using System.Windows;
 
 namespace PersonnelDepartment.Windows
@@ -11,12 +13,21 @@ namespace PersonnelDepartment.Windows
         public AuthorizationWindow()
         {
             InitializeComponent();
+            try
+            {
+                string connStr = File.ReadAllText("SqlConn.txt");
+                ConnectionFactory.SetConnectionString(connStr);
+            }
+            catch
+            {
+                MessageBox.Show("Не удалось установить подключение к БД.");
+            }
         }
 
         private void Enter_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            var frm = new PersonnelDepartmentWindow(new User());
+            var frm = new PersonnelDepartmentWindow(new User("", "", null, Permissions.None));
             frm.ShowDialog();
             Close();
         }
