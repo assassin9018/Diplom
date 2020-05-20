@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
-namespace PersonnelDepartment.Helpers
+namespace PersonnelDepartment.Helpers.Db
 {
     internal static class DbReader
     {
