@@ -1,4 +1,5 @@
 ﻿using PersonnelDepartment.Helpers;
+using PersonnelDepartment.Windows;
 using System.Data.SqlClient;
 
 namespace PersonnelDepartment.DTO
@@ -45,6 +46,13 @@ namespace PersonnelDepartment.DTO
             Surname = reader.GetString(reader.GetOrdinal(CSurname)).Trim();
             Name = reader.GetString(reader.GetOrdinal(CName)).Trim();
             Patronymic = reader.GetString(reader.GetOrdinal(CPatronymic))?.Trim();
+        }
+
+        public EmployeeBase(EmployeeWindow employeeWindow)
+        {
+            Name = employeeWindow.EmName.Text;
+            Surname = employeeWindow.EmSurname.Text;
+            Patronymic = employeeWindow.EmPatronymic.Text;
         }
 
         public override string ToString() => Utils.GetShortName(Surname, Name, Patronymic);

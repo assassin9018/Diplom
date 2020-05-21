@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PersonnelDepartment.Windows;
+using System;
 using System.Data.SqlClient;
 
 namespace PersonnelDepartment.DTO
@@ -40,6 +41,13 @@ namespace PersonnelDepartment.DTO
             Birthday = reader.GetDateTime(reader.GetOrdinal(CBirthday));
             Position = new EmployeePosition(reader);
             Unit = new WorkingUnit(reader);
+        }
+
+        public Employee(EmployeeWindow employeeWindow) : base(employeeWindow)
+        {
+            Position = employeeWindow.EmPosition.SelectedItem as EmployeePosition;
+            Unit = employeeWindow.EmUnit.SelectedItem as WorkingUnit;
+            Birthday = employeeWindow.EmBirthDay.SelectedDate.Value;
         }
     }
 }

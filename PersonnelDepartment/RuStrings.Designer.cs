@@ -70,6 +70,15 @@ namespace PersonnelDepartment {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Заполнены не все обязательные поля.
+        /// </summary>
+        internal static string DataNotFilled {
+            get {
+                return ResourceManager.GetString("DataNotFilled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Для подключения не может использоваться пустая строка.
         /// </summary>
         internal static string EmptyConnString {

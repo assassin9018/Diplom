@@ -43,5 +43,13 @@ namespace PersonnelDepartment.DTO
             IsPaid = reader.GetBoolean(reader.GetOrdinal(CIsPaid));
             Employee = new EmployeeBase(reader);
         }
+
+        public Holiday(EmployeeBase employee, bool isPaid, DateTime beginDate, DateTime endDate)
+        {
+            Employee = employee;
+            BeginDate = beginDate;
+            EndDate = endDate;
+            IsPaid = isPaid;
+        }
     }
 }

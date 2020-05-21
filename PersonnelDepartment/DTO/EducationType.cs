@@ -24,6 +24,11 @@ namespace PersonnelDepartment.DTO
             Name = reader.GetString(reader.GetOrdinal(CName));
         }
 
+        public EducationType(string name)
+        {
+            Name = name;
+        }
+
         public override string ToString() => Name;
     }
 }

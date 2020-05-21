@@ -120,6 +120,9 @@
   <data name="ConnStringNotSet" xml:space="preserve">
     <value>Не задана строка для подключения</value>
   </data>
+  <data name="DataNotFilled" xml:space="preserve">
+    <value>Заполнены не все обязательные поля</value>
+  </data>
   <data name="EmptyConnString" xml:space="preserve">
     <value>Для подключения не может использоваться пустая строка</value>
   </data>

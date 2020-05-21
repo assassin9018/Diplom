@@ -24,5 +24,11 @@ namespace PersonnelDepartment.DTO
             Address = reader.GetString(reader.GetOrdinal(CAddress));
             City = new City(reader);
         }
+
+        public Organization(string name, string address, City city) : base(name)
+        {
+            Address = address;
+            City = city;
+        }
     }
 }

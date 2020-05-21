@@ -43,7 +43,7 @@ namespace PersonnelDepartment.DTO
             Organization = new OrganizationBase(reader);
         }
 
-        public BusinessTrip(int id, EmployeeBase employee, Organization organization, DateTime beginDate, DateTime endDate)
+        public BusinessTrip(int id, EmployeeBase employee, OrganizationBase organization, DateTime beginDate, DateTime endDate)
         {
             Id = id;
             Employee = employee;
@@ -52,7 +52,7 @@ namespace PersonnelDepartment.DTO
             EndDate = endDate;
         }
 
-        public BusinessTrip(EmployeeBase employee, Organization organization, DateTime beginDate, DateTime endDate)
+        public BusinessTrip(EmployeeBase employee, OrganizationBase organization, DateTime beginDate, DateTime endDate)
         {
             Employee = employee;
             Organization = organization;

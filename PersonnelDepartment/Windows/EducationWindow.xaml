@@ -23,15 +23,15 @@
 
         <TextBlock Grid.Row="2" Margin="75,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"  Text="Город учебного заведения"/>
         <Button Grid.Row="2" Margin="50,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Content="+" Width="20" Name="AddCityBtn" Click="AddCityBtn_Click"/>
-        <ComboBox Grid.Row="2" Margin="75,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Name="City"/>
+        <ComboBox Grid.Row="2" Margin="75,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Name="CityCb"/>
 
         <TextBlock Grid.Row="3" Margin="75,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"  Text="Тип образования"/>
         <Button Grid.Row="3" Margin="50,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Content="+" Width="20" Name="AddEduTypeBtn" Click="AddEduTypeBtn_Click"/>
-        <ComboBox Grid.Row="3" Margin="75,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Name="EducationType"/>
+        <ComboBox Grid.Row="3" Margin="75,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Name="EducationTypeCb"/>
 
         <TextBlock Grid.Row="4" Margin="75,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"  Text="Специальность"/>
         <Button Grid.Row="4" Margin="50,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Content="+" Width="20" Name="AddSpecialtyBtn" Click="AddSpecialtyBtn_Click"/>
-        <ComboBox Grid.Row="4" Margin="75,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Name="Specialty"/>
+        <ComboBox Grid.Row="4" Margin="75,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Name="SpecialtyCb"/>
 
         <Button Grid.Row="6" Margin="25,0,0,0" Width="80" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Оформить" x:Name="Enter" Click="Enter_Click"/>
         <Button Grid.Row="6" Margin="0,0,25,0" Width="80" VerticalAlignment="Center" HorizontalAlignment="Right" Content="Отмена" x:Name="Exit" Click="Exit_Click"/>

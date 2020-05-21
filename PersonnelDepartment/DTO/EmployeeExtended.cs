@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PersonnelDepartment.Windows;
+using System;
 using System.Data.SqlClient;
 
 namespace PersonnelDepartment.DTO
@@ -112,6 +113,24 @@ namespace PersonnelDepartment.DTO
             IsMarried = reader.GetBoolean(reader.GetOrdinal(CIsMarried));
             ChildrenCount = reader.GetInt32(reader.GetOrdinal(CChildrenCount));
             Education = new Education(reader);
+        }
+
+        public EmployeeExtended(EmployeeWindow employeeWindow) : base(employeeWindow)
+        {
+            PassportSeria = employeeWindow.EmPasSeria.Text.Trim();
+            PassportNumber = long.Parse(employeeWindow.EmPasNumber.Text);
+            PassportDate = employeeWindow.EmPassportDate.SelectedDate.Value;
+            PaspWho = employeeWindow.EmPaspWho.Text.Trim();
+            PassportCode = long.Parse(employeeWindow.EmPassportCode.Text);
+            PlaceOfResidence = employeeWindow.EmPlaceOfResidence.Text.Trim();
+            PlaceOfRegistration = employeeWindow.EmPlaceOfRegistration.Text.Trim();
+
+            IsMarried = employeeWindow.EmIsMarried.IsChecked.Value;
+            ChildrenCount = int.Parse(employeeWindow.EmChildren.Text);
+            Education = employeeWindow.EmEducation.SelectedItem as Education;
+
+            CityOfRegistration = employeeWindow.EmCityOfRegistration.SelectedItem as City;
+            CityOfResidence = employeeWindow.EmCityOfResidence.SelectedItem as City;
         }
     }
 }

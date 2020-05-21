@@ -20,9 +20,8 @@ namespace PersonnelDepartment.DTO
         /// </summary>
         public string Name { get; }
 
-        public WorkingUnit(int id, string name)
+        public WorkingUnit(string name)
         {
-            Id = id;
             Name = name;
         }
 

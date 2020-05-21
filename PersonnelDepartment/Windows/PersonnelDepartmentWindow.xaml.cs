@@ -27,12 +27,12 @@ namespace PersonnelDepartment.Windows
 
         internal PersonnelDepartmentWindow(User user) : this()
         {
-            var wu = new WorkingUnit(10, "Прогеры");
-            var p = new EmployeePosition(25, "Джун");
+            var wu = new WorkingUnit("Прогеры");
+            var p = new EmployeePosition("Джун");
             var em = new Employee(1,"Иванов", "Иван", "Иванович", p, wu, DateTime.MinValue);
             EmployeesGrid.Items.Add(em);
-            wu = new WorkingUnit(10, "Тестеры");
-            p = new EmployeePosition(25, "Мидл");
+            wu = new WorkingUnit("Тестеры");
+            p = new EmployeePosition("Мидл");
             em = new Employee(1, "Петров", "Пётр", "Петрович", p, wu, DateTime.MaxValue);
             EmployeesGrid.Items.Add(em);
         }

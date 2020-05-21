@@ -20,9 +20,8 @@ namespace PersonnelDepartment.DTO
         /// </summary>
         public string Name { get; }
 
-        public EmployeePosition(int id, string name)
+        public EmployeePosition(string name)
         {
-            Id = id;
             Name = name;
         }
 
