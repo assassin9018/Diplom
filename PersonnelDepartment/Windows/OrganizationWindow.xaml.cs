@@ -1,6 +1,5 @@
 ﻿using PersonnelDepartment.DTO;
 using PersonnelDepartment.Helpers.Db;
-using System;
 using System.Windows;
 
 namespace PersonnelDepartment.Windows
@@ -13,7 +12,13 @@ namespace PersonnelDepartment.Windows
         public OrganizationWindow()
         {
             InitializeComponent();
-            //todo загрузка городов
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            foreach(var item in DbReader.ReadCities())
+                CityCb.Items.Add(item);
         }
 
         private void Enter_Click(object sender, RoutedEventArgs e)

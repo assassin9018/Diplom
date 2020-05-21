@@ -1,6 +1,5 @@
 ﻿using PersonnelDepartment.DTO;
 using PersonnelDepartment.Helpers.Db;
-using System;
 using System.Windows;
 
 namespace PersonnelDepartment.Windows
@@ -13,16 +12,25 @@ namespace PersonnelDepartment.Windows
         public EmployeeWindow()
         {
             InitializeComponent();
-            UpdateDbData();
+            LoadData();
         }
 
-        private void UpdateDbData()
+        private void LoadData()
         {
             foreach(var city in DbReader.ReadCities())
             {
                 EmCityOfRegistration.Items.Add(city);
                 EmCityOfResidence.Items.Add(city);
             }
+
+            foreach(var city in DbReader.ReadEmployeePositions())
+                EmPosition.Items.Add(city);
+
+            foreach(var city in DbReader.ReadWorkingUnits())
+                EmUnit.Items.Add(city);
+
+            foreach(var city in DbReader.ReadEducations())
+                EmEducation.Items.Add(city);
         }
 
         private void Enter_Click(object sender, RoutedEventArgs e)

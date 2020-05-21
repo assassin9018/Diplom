@@ -13,6 +13,19 @@ namespace PersonnelDepartment.Windows
         public EducationWindow()
         {
             InitializeComponent();
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            foreach(var item in DbReader.ReadSpecialties())
+                SpecialtyCb.Items.Add(item);
+
+            foreach(var item in DbReader.ReadCities())
+                CityCb.Items.Add(item);
+
+            foreach(var item in DbReader.ReadEducationTypes())
+                EducationTypeCb.Items.Add(item);                
         }
 
         private void Enter_Click(object sender, RoutedEventArgs e)

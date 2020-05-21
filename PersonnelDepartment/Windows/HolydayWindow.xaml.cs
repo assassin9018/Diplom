@@ -13,6 +13,13 @@ namespace PersonnelDepartment.Windows
         public HolydayWindow()
         {
             InitializeComponent();
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            foreach(var item in DbReader.ReadBaseEmploees())
+                EmployeeCb.Items.Add(item);
         }
 
         private void Enter_Click(object sender, RoutedEventArgs e)

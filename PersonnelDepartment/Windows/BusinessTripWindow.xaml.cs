@@ -13,6 +13,16 @@ namespace PersonnelDepartment.Windows
         public BusinessTripWindow()
         {
             InitializeComponent();
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            foreach(var item in DbReader.ReadBaseOrganizations())
+                OrganizationCb.Items.Add(item);
+
+            foreach(var item in DbReader.ReadBaseEmploees())
+                EmployeeCb.Items.Add(item);
         }
 
         private void Enter_Click(object sender, RoutedEventArgs e)
