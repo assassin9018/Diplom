@@ -74,6 +74,7 @@
     <Compile Include="Helpers\ConnectionFactory.cs" />
     <Compile Include="Helpers\Db\DbDirectReader.cs" />
     <Compile Include="Helpers\Db\DbReader.cs" />
+    <Compile Include="Helpers\Db\DbRemover.cs" />
     <Compile Include="Helpers\Db\DbUpdater.cs" />
     <Compile Include="Helpers\Db\DbWriter.cs" />
     <Compile Include="Helpers\ThrowHelper.cs" />
