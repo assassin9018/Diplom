@@ -111,12 +111,11 @@ namespace PersonnelDepartment.Helpers.Db
             return resultValue;
         }
 
-        public static Employee GetEmployee(int rowId)
+        public static EmployeeExtended GetEmployee(int rowId)
         {
-            throw new NotImplementedException();
             const string sqlExpression = "EmployeeById";
-            Employee resultValue = null;
-
+            EmployeeExtended resultValue = null;
+            int edId = 0, ctRes = 0, ctReg = 0;
             using(SqlConnection connection = ConnectionFactory.GetSqlConnection())
             {
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
@@ -130,12 +129,22 @@ namespace PersonnelDepartment.Helpers.Db
                 //если запись найдена, то читаем её и создаём запрошенный объект
                 using(var reader = command.ExecuteReader())
                     if(reader.HasRows && reader.Read())
-                        resultValue = new Employee(reader);
+                    {
+                        resultValue = new EmployeeExtended(reader);
+                        edId = reader.GetInt32(reader.GetOrdinal("EdId"));
+                        ctRes = reader.GetInt32(reader.GetOrdinal("EmCityIdOfResidence"));
+                        ctReg = reader.GetInt32(reader.GetOrdinal("EmCityIdOfRegistration"));
+                    }
                     else
                         throw new InvalidOperationException(string.Format(RuStrings.RowNotFound, rowId, nameof(Employee)));
             }
-            //нужно ещё пару запросов с выбором городов
 
+            if(edId > 0 && ctRes > 0 && ctReg > 0)
+            {
+                resultValue.Education = GetEducation(edId);
+                resultValue.CityOfResidence = GetCity(ctRes);
+                resultValue.CityOfRegistration = GetCity(ctReg);
+            }
             return resultValue;
         }
 

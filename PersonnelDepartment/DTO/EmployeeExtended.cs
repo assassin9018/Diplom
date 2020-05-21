@@ -87,7 +87,7 @@ namespace PersonnelDepartment.DTO
         /// <summary>
         /// Образование
         /// </summary>
-        public Education Education { get; }
+        public Education Education { get; set; }
 
         #endregion
 
