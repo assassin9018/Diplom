@@ -13,7 +13,7 @@ namespace PersonnelDepartment.Helpers.Db
             if(currentUser.Id == userForRemove.Id)
                 throw new InvalidOperationException(RuStrings.UsersAreSame);
 
-            const string sqlExpression = "RemoveUser";
+            const string sqlExpression = "DeleteUser";
 
             using(SqlConnection connection = ConnectionFactory.GetSqlConnection())
             {
@@ -36,7 +36,7 @@ namespace PersonnelDepartment.Helpers.Db
             if(currentUser.Employee.Id == employee.Id)
                 throw new InvalidOperationException(RuStrings.UserEqualsEmploee);
 
-            const string sqlExpression = "RemoveEmployee";
+            const string sqlExpression = "DeleteEmployee";
 
             using(SqlConnection connection = ConnectionFactory.GetSqlConnection())
             {
