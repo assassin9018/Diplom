@@ -1,6 +1,5 @@
 ﻿using PersonnelDepartment.DTO;
 using PersonnelDepartment.Helpers.Db;
-using System;
 using System.Windows;
 
 namespace PersonnelDepartment.Windows
@@ -20,7 +19,7 @@ namespace PersonnelDepartment.Windows
             if(TryWriteValue())
                 Close();
             else
-                MessageBox.Show(RuStrings.DataNotFilled);
+                MessageBox.Show(RuStrings.NotAllDataIsFilled);
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -42,7 +41,6 @@ namespace PersonnelDepartment.Windows
             return false;
         }
 
-        //todo тут должны быть проверки
-        private bool IsAllOk() => true;
+        private bool IsAllOk() => PositionTb.Text.Length > 0;
     }
 }

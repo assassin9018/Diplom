@@ -26,7 +26,7 @@ namespace PersonnelDepartment.Windows
             if(TryWriteValue())
                 Close();
             else
-                MessageBox.Show(RuStrings.DataNotFilled);
+                MessageBox.Show(RuStrings.NotAllDataIsFilled);
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -81,7 +81,10 @@ namespace PersonnelDepartment.Windows
             return perms;
         }
 
-        //todo тут должны быть проверки
-        private bool IsAllOk() => true;
+        private bool IsAllOk()
+            => Login.Text.Length > 0
+            && Password.Password.Length > 0
+            && UserName.SelectedItem is EmployeeBase;
+        //считаем, что все переключатели не могут быть null, т.е. ни разу с таким не сталкиваелся
     }
 }

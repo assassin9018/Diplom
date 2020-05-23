@@ -1,5 +1,6 @@
 ﻿using PersonnelDepartment.DTO;
 using PersonnelDepartment.Helpers.Db;
+using System;
 using System.Windows;
 
 namespace PersonnelDepartment.Windows
@@ -17,16 +18,25 @@ namespace PersonnelDepartment.Windows
         internal EmployeeWindow(User user) : this()
         {
             LoadData();
+            LockIfForbidden(user);
         }
 
         internal EmployeeWindow(User user, EmployeeExtended employeeExtended) : this()
         {
-            AddCityBtn1.IsEnabled = user.Permissions.HasFlag(Permissions.AddInnerInfo);
-            AddCityBtn2.IsEnabled = user.Permissions.HasFlag(Permissions.AddInnerInfo);
-            AddEducationBtn.IsEnabled = user.Permissions.HasFlag(Permissions.AddInnerInfo);
-            AddPositionBtn.IsEnabled = user.Permissions.HasFlag(Permissions.AddInnerInfo);
-            AddUnitBtn.IsEnabled = user.Permissions.HasFlag(Permissions.AddInnerInfo);
-            //todo lock all buttons and show EmployeeData
+            LockIfForbidden(user);
+            ShowEmloyeeData(employeeExtended);
+        }
+
+        private void ShowEmloyeeData(EmployeeExtended employeeExtended) => throw new NotImplementedException();
+
+        private void LockIfForbidden(User user)
+        {
+            bool flag = user.Permissions.HasFlag(Permissions.AddInnerInfo);
+            AddCityBtn1.IsEnabled = flag;
+            AddCityBtn2.IsEnabled = flag;
+            AddEducationBtn.IsEnabled = flag;
+            AddPositionBtn.IsEnabled = flag;
+            AddUnitBtn.IsEnabled = flag;
         }
 
         private void LoadData()
@@ -51,8 +61,6 @@ namespace PersonnelDepartment.Windows
         {
             if(TryWriteValue())
                 Close();
-            else
-                MessageBox.Show(RuStrings.DataNotFilled);
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -70,12 +78,30 @@ namespace PersonnelDepartment.Windows
 
                 return true;
             }
+            else
+                MessageBox.Show(RuStrings.NotAllDataIsFilled);
 
             return false;
         }
 
-        //todo тут должны быть проверки
-        private bool IsAllOk() => true;
+        private bool IsAllOk()
+        {
+            return EmName.Text.Length > 0
+                   && EmSurname.Text.Length > 0
+                   && EmPatronymic.Text.Length > 0
+                   && EmBirthDay.SelectedDate != null
+                   && EmPosition.SelectedItem is EmployeePosition
+                   && EmUnit.SelectedItem is WorkingUnit
+                   && EmPasSeria.Text.Length > 0
+                   && int.TryParse(EmPasNumber.Text, out _)
+                   && EmPassportDate.SelectedDate != null
+                   && EmPaspWho.Text.Length > 0
+                   && int.TryParse(EmPassportCode.Text, out _)
+                   && EmCityOfResidence.SelectedItem is City
+                   && EmCityOfRegistration.SelectedItem is City
+                   && int.TryParse(EmChildren.Text, out _)
+                   && EmEducation.SelectedItem is Education;
+        }
 
         private void AddCityBtn_Click(object sender, RoutedEventArgs e)
         {

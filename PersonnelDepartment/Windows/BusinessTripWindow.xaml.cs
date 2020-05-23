@@ -35,7 +35,7 @@ namespace PersonnelDepartment.Windows
             if(TryWriteValue())
                 Close();
             else
-                MessageBox.Show(RuStrings.DataNotFilled);
+                MessageBox.Show(RuStrings.NotAllDataIsFilled);
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -61,8 +61,13 @@ namespace PersonnelDepartment.Windows
             return false;
         }
 
-        //todo тут должны быть проверки
-        private bool IsAllOk() => true;
+        private bool IsAllOk()
+        {
+            DateTime? start = StartDateDp.SelectedDate.Value;
+            DateTime? end = EndDateDp.SelectedDate.Value;
+
+            return EmployeeCb.SelectedItem is EmployeeBase && OrganizationCb.SelectedItem is OrganizationBase && start != null && end != null;
+        }
 
         private void AddOrganizationBtn_Click(object sender, RoutedEventArgs e)
         {

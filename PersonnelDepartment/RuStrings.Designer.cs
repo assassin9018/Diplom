@@ -70,11 +70,11 @@ namespace PersonnelDepartment {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Заполнены не все обязательные поля.
+        ///   Ищет локализованную строку, похожую на Работник успешно уволен..
         /// </summary>
-        internal static string DataNotFilled {
+        internal static string EmployeeDeleted {
             get {
-                return ResourceManager.GetString("DataNotFilled", resourceCulture);
+                return ResourceManager.GetString("EmployeeDeleted", resourceCulture);
             }
         }
         
@@ -84,6 +84,15 @@ namespace PersonnelDepartment {
         internal static string EmptyConnString {
             get {
                 return ResourceManager.GetString("EmptyConnString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Не удалось занести данные в базу, возможно заполнены не обязательные поля..
+        /// </summary>
+        internal static string InsertError {
+            get {
+                return ResourceManager.GetString("InsertError", resourceCulture);
             }
         }
         
@@ -115,6 +124,15 @@ namespace PersonnelDepartment {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Заполнены не все данные или формат данных не соответсвует ожидаемому..
+        /// </summary>
+        internal static string NotAllDataIsFilled {
+            get {
+                return ResourceManager.GetString("NotAllDataIsFilled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Во время выполнения запроса произошла ошибка. Проверьте подключение к базе данных..
         /// </summary>
         internal static string QueryError {
@@ -124,11 +142,47 @@ namespace PersonnelDepartment {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Операция завершилась с ошибкой, т.к. не удалось найти запись в таблице..
+        /// </summary>
+        internal static string RemoveNotExecuted {
+            get {
+                return ResourceManager.GetString("RemoveNotExecuted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Не удалось найти запись. Id - {0}, таблица - &apos;{1}&apos;..
         /// </summary>
         internal static string RowNotFound {
             get {
                 return ResourceManager.GetString("RowNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пользователь успешно удалён.
+        /// </summary>
+        internal static string UserDeleted {
+            get {
+                return ResourceManager.GetString("UserDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Невозможно удалить работника, т.к. он соответствует вашему аккаунту..
+        /// </summary>
+        internal static string UserEqualsEmploee {
+            get {
+                return ResourceManager.GetString("UserEqualsEmploee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Невозможно удалить свой аккаунт пользователя..
+        /// </summary>
+        internal static string UsersAreSame {
+            get {
+                return ResourceManager.GetString("UsersAreSame", resourceCulture);
             }
         }
     }

@@ -31,7 +31,7 @@ namespace PersonnelDepartment.Windows
             if(TryWriteValue())
                 Close();
             else
-                MessageBox.Show(RuStrings.DataNotFilled);
+                MessageBox.Show(RuStrings.NotAllDataIsFilled);
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -57,8 +57,10 @@ namespace PersonnelDepartment.Windows
             return false;
         }
 
-        //todo тут должны быть проверки
-        private bool IsAllOk() => true;
+        private bool IsAllOk()
+            => OrganizationNameTb.Text.Length > 0
+            && AddressTb.Text.Length > 0
+            && CityCb.SelectedItem is City;
 
         private void AddCityBtn_Click(object sender, RoutedEventArgs e)
         {

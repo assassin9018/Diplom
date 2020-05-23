@@ -61,8 +61,11 @@ namespace PersonnelDepartment.Windows
 
         private void DelEmploee_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Ты уволен!!!!");
-            LoadEmployees();
+            if(EmployeesGrid.SelectedItem is Employee employee)
+            {
+                DbUpdater.RemoveEmployee(_user, employee);
+                LoadEmployees();
+            }
         }
 
         private void AddTrip_Click(object sender, RoutedEventArgs e)

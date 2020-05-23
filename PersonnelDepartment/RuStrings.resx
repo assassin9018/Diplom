@@ -120,11 +120,14 @@
   <data name="ConnStringNotSet" xml:space="preserve">
     <value>Не задана строка для подключения</value>
   </data>
-  <data name="DataNotFilled" xml:space="preserve">
-    <value>Заполнены не все обязательные поля</value>
+  <data name="EmployeeDeleted" xml:space="preserve">
+    <value>Работник успешно уволен.</value>
   </data>
   <data name="EmptyConnString" xml:space="preserve">
     <value>Для подключения не может использоваться пустая строка</value>
+  </data>
+  <data name="InsertError" xml:space="preserve">
+    <value>Не удалось занести данные в базу, возможно заполнены не обязательные поля.</value>
   </data>
   <data name="InvalidData" xml:space="preserve">
     <value>На форме  указаны некорректные данные.</value>
@@ -135,10 +138,25 @@
   <data name="InvalidPassword" xml:space="preserve">
     <value>Указан неверный пароль пользователя.</value>
   </data>
+  <data name="NotAllDataIsFilled" xml:space="preserve">
+    <value>Заполнены не все данные или формат данных не соответсвует ожидаемому.</value>
+  </data>
   <data name="QueryError" xml:space="preserve">
     <value>Во время выполнения запроса произошла ошибка. Проверьте подключение к базе данных.</value>
   </data>
+  <data name="RemoveNotExecuted" xml:space="preserve">
+    <value>Операция завершилась с ошибкой, т.к. не удалось найти запись в таблице.</value>
+  </data>
   <data name="RowNotFound" xml:space="preserve">
     <value>Не удалось найти запись. Id - {0}, таблица - '{1}'.</value>
+  </data>
+  <data name="UserDeleted" xml:space="preserve">
+    <value>Пользователь успешно удалён</value>
+  </data>
+  <data name="UserEqualsEmploee" xml:space="preserve">
+    <value>Невозможно удалить работника, т.к. он соответствует вашему аккаунту.</value>
+  </data>
+  <data name="UsersAreSame" xml:space="preserve">
+    <value>Невозможно удалить свой аккаунт пользователя.</value>
   </data>
 </root>
