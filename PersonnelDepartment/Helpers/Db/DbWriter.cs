@@ -70,7 +70,7 @@ namespace PersonnelDepartment.Helpers.Db
 
         public static void AddEmployee(EmployeeExtended obj)
         {
-            const string sqlExpression = "AddOrganization";
+            const string sqlExpression = "AddEmployee";
 
             using(SqlConnection connection = ConnectionFactory.GetSqlConnection())
             {
@@ -108,7 +108,7 @@ namespace PersonnelDepartment.Helpers.Db
             {
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@Name", obj.Name));
+                command.Parameters.Add(new SqlParameter("@Position", obj.Name));
 
                 _ = command.ExecuteNonQuery();
             }

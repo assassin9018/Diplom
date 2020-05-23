@@ -94,7 +94,7 @@ namespace PersonnelDepartment.Helpers.Db
         {
             using(var connection = ConnectionFactory.GetSqlConnection())
             {
-                var command = new SqlCommand("EmployeePositionView", connection);
+                var command = new SqlCommand("EmployeePositionsView", connection);
                 using(var reader = command.ExecuteReader())
                 {
                     if(reader.HasRows)

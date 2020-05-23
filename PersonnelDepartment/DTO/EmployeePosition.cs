@@ -9,7 +9,7 @@ namespace PersonnelDepartment.DTO
     {
         private const string Prefix = "Ep";
         private const string CId = Prefix + "Id";
-        private const string CName = Prefix + "Name";
+        private const string CName = Prefix + "Position";
 
         /// <summary>
         /// Id записи в БД.

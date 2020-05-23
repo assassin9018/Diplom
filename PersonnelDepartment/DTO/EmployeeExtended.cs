@@ -33,7 +33,7 @@ namespace PersonnelDepartment.DTO
         /// <summary>
         /// Номер паспорта
         /// </summary>
-        public long PassportNumber { get; }
+        public int PassportNumber { get; }
 
         /// <summary>
         /// Дата выдачи паспорта
@@ -48,7 +48,7 @@ namespace PersonnelDepartment.DTO
         /// <summary>
         /// Код подразделения паспорта
         /// </summary>
-        public long PassportCode { get; }
+        public int PassportCode { get; }
 
         /// <summary>
         /// Город проживания
@@ -103,10 +103,10 @@ namespace PersonnelDepartment.DTO
         public EmployeeExtended(SqlDataReader reader) : base(reader)
         {
             PassportSeria = reader.GetString(reader.GetOrdinal(CPassportSeria)).Trim();
-            PassportNumber = reader.GetInt64(reader.GetOrdinal(CPassportNumber));
+            PassportNumber = reader.GetInt32(reader.GetOrdinal(CPassportNumber));
             PassportDate = reader.GetDateTime(reader.GetOrdinal(CPassportDate));
             PaspWho = reader.GetString(reader.GetOrdinal(CPaspWho)).Trim();
-            PassportCode = reader.GetInt64(reader.GetOrdinal(CPassportCode));
+            PassportCode = reader.GetInt32(reader.GetOrdinal(CPassportCode));
             PlaceOfResidence = reader.GetString(reader.GetOrdinal(CPlaceOfResidence)).Trim();
             PlaceOfRegistration = reader.GetString(reader.GetOrdinal(CPlaceOfRegistration)).Trim();
 
@@ -118,10 +118,10 @@ namespace PersonnelDepartment.DTO
         public EmployeeExtended(EmployeeWindow employeeWindow) : base(employeeWindow)
         {
             PassportSeria = employeeWindow.EmPasSeria.Text.Trim();
-            PassportNumber = long.Parse(employeeWindow.EmPasNumber.Text);
+            PassportNumber = int.Parse(employeeWindow.EmPasNumber.Text);
             PassportDate = employeeWindow.EmPassportDate.SelectedDate.Value;
             PaspWho = employeeWindow.EmPaspWho.Text.Trim();
-            PassportCode = long.Parse(employeeWindow.EmPassportCode.Text);
+            PassportCode = int.Parse(employeeWindow.EmPassportCode.Text);
             PlaceOfResidence = employeeWindow.EmPlaceOfResidence.Text.Trim();
             PlaceOfRegistration = employeeWindow.EmPlaceOfRegistration.Text.Trim();
 

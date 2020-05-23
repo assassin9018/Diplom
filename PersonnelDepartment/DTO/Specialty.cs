@@ -28,7 +28,7 @@ namespace PersonnelDepartment.DTO
         {
             Id = reader.GetInt32(reader.GetOrdinal(CId));
             Name = reader.GetString(reader.GetOrdinal(CName)).Trim();
-            Code = reader.GetInt64(reader.GetOrdinal(CCode));
+            Code = reader.GetInt32(reader.GetOrdinal(CCode));
         }
 
         public Specialty(int id, string name, long code)
@@ -43,5 +43,7 @@ namespace PersonnelDepartment.DTO
             Name = name;
             Code = code;
         }
+
+        public override string ToString() => Name;
     }
 }
