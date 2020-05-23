@@ -1,6 +1,9 @@
 ﻿using PersonnelDepartment.DTO;
 using PersonnelDepartment.Helpers.Db;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace PersonnelDepartment.Windows
 {
@@ -10,6 +13,7 @@ namespace PersonnelDepartment.Windows
     public partial class PersonnelDepartmentWindow : Window
     {
         private readonly User _user;
+        private List<Employee> _employees;
 
         public PersonnelDepartmentWindow()
         {
@@ -36,8 +40,47 @@ namespace PersonnelDepartment.Windows
         private void LoadEmployees()
         {
             EmployeesGrid.Items.Clear();
+            _employees = new List<Employee>();
+            int lastUnitId = (UnitFilter.SelectedItem as WorkingUnit)?.Id ?? 0;
+            int lastPositionId = (PositionFilter.SelectedItem as EmployeePosition)?.Id ?? 0;
             foreach(var em in DbReader.ReadEmploees())
+            {
                 EmployeesGrid.Items.Add(em);
+                _employees.Add(em);
+            }
+            UpdateFiltersData(lastUnitId, lastPositionId);
+        }
+
+        private void UpdateFiltersData(int lastUnitId, int lastPositionId)
+        {
+            var positionHash = new HashSet<EmployeePosition>();
+            var unitHash = new HashSet<WorkingUnit>();
+            foreach(var em in _employees)
+            {
+                positionHash.Add(em.Position);
+                unitHash.Add(em.Unit);
+            }
+            UnitFilter.Items.Clear();
+            UnitFilter.Items.Add("Все");
+            unitHash.ToList().ForEach(x => UnitFilter.Items.Add(x));
+            PositionFilter.Items.Clear();
+            PositionFilter.Items.Add("Все");
+            positionHash.ToList().ForEach(x => PositionFilter.Items.Add(x));
+
+            int newUnitIndex, newPositionIndex;
+            if(lastUnitId == 0)
+                newUnitIndex = 0;
+            else
+                newUnitIndex = UnitFilter.Items.Cast<object>().TakeWhile(obj => obj is WorkingUnit u && u.Id != lastUnitId).Count();
+            newUnitIndex = newUnitIndex == UnitFilter.Items.Count ? 0 : newUnitIndex;
+            UnitFilter.SelectedIndex = newUnitIndex;
+
+            if(lastPositionId == 0)
+                newPositionIndex = 0;
+            else
+                newPositionIndex = PositionFilter.Items.Cast<object>().TakeWhile(obj => obj is EmployeePosition u && u.Id != lastPositionId).Count();
+            newPositionIndex = newPositionIndex == PositionFilter.Items.Count ? 0 : newPositionIndex;
+            PositionFilter.SelectedIndex = newPositionIndex;
         }
 
         private void ExtendedEmploee_Click(object sender, RoutedEventArgs e)
@@ -78,6 +121,24 @@ namespace PersonnelDepartment.Windows
         {
             var frm = new UserWindow();
             frm.Show();
+        }
+
+        private void Filter_Changed(object sender, SelectionChangedEventArgs e)
+        {
+            if(_employees == null)
+                return;
+            EmployeesGrid.Items.Clear();
+            var items = _employees.AsEnumerable();
+            IEnumerable<Employee> afterPosFilter = items;
+            if(PositionFilter.SelectedItem is EmployeePosition pos)
+                afterPosFilter = items.Where(x => x.Position.Id == pos.Id);
+
+            IEnumerable<Employee> afterUnitFilter = afterPosFilter;
+            if(UnitFilter.SelectedItem is WorkingUnit unit)
+                afterUnitFilter = items.Where(x => x.Unit.Id == unit.Id);
+
+            foreach(var item in afterUnitFilter)
+                EmployeesGrid.Items.Add(item);
         }
     }
 }

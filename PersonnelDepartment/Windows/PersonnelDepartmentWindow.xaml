@@ -16,13 +16,17 @@
         <Menu>
             <MenuItem Header="Сервис">
                 <MenuItem Header="Нанять сотрудника" Name="AddEmploee" Click="AddEmploee_Click"/>
-                <MenuItem Header="Добавил пользователя" Name="AddUser" Click="AddUser_Click"/>
+                <MenuItem Header="Добавить пользователя" Name="AddUser" Click="AddUser_Click"/>
             </MenuItem>
         </Menu>
 
-        <TextBlock Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Здесь будут всякие элементы поиска"/>
+        <TextBlock Margin="10,0,0,20" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Фильтр по должностям"/>
+        <ComboBox Margin="10,20,0,0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="130" Name="PositionFilter" SelectionChanged="Filter_Changed"/>
+        <TextBlock Margin="160,0,0,20" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Фильтр по подразделениям"/>
+        <ComboBox Margin="160,20,0,0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="130" Name="UnitFilter" SelectionChanged="Filter_Changed"/>
+        
 
-        <Grid Grid.Column="0" Grid.Row="2" Margin="5,5,5,5">
+        <Grid Grid.Column="0" Grid.Row="2" Margin="0,0,0,0">
             <DataGrid Margin="10,10,10,10" Name="EmployeesGrid" IsReadOnly="True">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Имя"  Binding="{Binding Name}"/>
