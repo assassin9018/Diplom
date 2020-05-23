@@ -41,20 +41,42 @@ namespace PersonnelDepartment.Windows
 
         private void LoadData()
         {
-            foreach(var city in DbReader.ReadCities())
+            ReloadCities();
+            ReloadPositions();
+            ReloadWorkingUnits();
+            ReloadEducations();
+        }
+
+        private void ReloadEducations()
+        {
+            EmEducation.Items.Clear();
+            foreach(var item in DbReader.ReadEducations())
+                EmEducation.Items.Add(item);
+        }
+
+        private void ReloadWorkingUnits()
+        {
+            EmUnit.Items.Clear();
+            foreach(var item in DbReader.ReadWorkingUnits())
+                EmUnit.Items.Add(item);
+        }
+
+        private void ReloadPositions()
+        {
+            EmPosition.Items.Clear();
+            foreach(var item in DbReader.ReadEmployeePositions())
+                EmPosition.Items.Add(item);
+        }
+
+        private void ReloadCities()
+        {
+            EmCityOfRegistration.Items.Clear();
+            EmCityOfResidence.Items.Clear();
+            foreach(var item in DbReader.ReadCities())
             {
-                EmCityOfRegistration.Items.Add(city);
-                EmCityOfResidence.Items.Add(city);
+                EmCityOfRegistration.Items.Add(item);
+                EmCityOfResidence.Items.Add(item);
             }
-
-            foreach(var city in DbReader.ReadEmployeePositions())
-                EmPosition.Items.Add(city);
-
-            foreach(var city in DbReader.ReadWorkingUnits())
-                EmUnit.Items.Add(city);
-
-            foreach(var city in DbReader.ReadEducations())
-                EmEducation.Items.Add(city);
         }
 
         private void Enter_Click(object sender, RoutedEventArgs e)
@@ -107,24 +129,28 @@ namespace PersonnelDepartment.Windows
         {
             var frm = new CityWindow();
             frm.ShowDialog();
+            ReloadCities();
         }
 
         private void AddPositionBtn_Click(object sender, RoutedEventArgs e)
         {
             var frm = new PositionWindow();
             frm.ShowDialog();
+            ReloadPositions();
         }
 
         private void AddUnitBtn_Click(object sender, RoutedEventArgs e)
         {
             var frm = new WorkingUnitWindow();
             frm.ShowDialog();
+            ReloadWorkingUnits();
         }
 
         private void AddEducationBtn_Click(object sender, RoutedEventArgs e)
         {
             var frm = new EducationWindow();
             frm.ShowDialog();
+            ReloadEducations();
         }
     }
 }

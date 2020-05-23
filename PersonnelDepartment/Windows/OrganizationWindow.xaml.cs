@@ -16,12 +16,13 @@ namespace PersonnelDepartment.Windows
 
         internal OrganizationWindow(User user)
         {
-            LoadData();
+            ReloadCities();
             AddCityBtn.IsEnabled = user.Permissions.HasFlag(Permissions.AddInnerInfo);
         }
 
-        private void LoadData()
+        private void ReloadCities()
         {
+            CityCb.Items.Clear();
             foreach(var item in DbReader.ReadCities())
                 CityCb.Items.Add(item);
         }
@@ -66,6 +67,7 @@ namespace PersonnelDepartment.Windows
         {
             var frm = new CityWindow();
             frm.ShowDialog();
+            ReloadCities();
         }
     }
 }

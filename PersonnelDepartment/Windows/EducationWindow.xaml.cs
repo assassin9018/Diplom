@@ -26,14 +26,30 @@ namespace PersonnelDepartment.Windows
 
         private void LoadData()
         {
-            foreach(var item in DbReader.ReadSpecialties())
-                SpecialtyCb.Items.Add(item);
+            ReloadSpecialties();
+            ReloadCities();
+            ReloadEducationTypes();
+        }
 
+        private void ReloadEducationTypes()
+        {
+            EducationTypeCb.Items.Clear();
+            foreach(var item in DbReader.ReadEducationTypes())
+                EducationTypeCb.Items.Add(item);
+        }
+
+        private void ReloadCities()
+        {
+            CityCb.Items.Clear();
             foreach(var item in DbReader.ReadCities())
                 CityCb.Items.Add(item);
+        }
 
-            foreach(var item in DbReader.ReadEducationTypes())
-                EducationTypeCb.Items.Add(item);                
+        private void ReloadSpecialties()
+        {
+            SpecialtyCb.Items.Clear();
+            foreach(var item in DbReader.ReadSpecialties())
+                SpecialtyCb.Items.Add(item);
         }
 
         private void Enter_Click(object sender, RoutedEventArgs e)
@@ -77,18 +93,21 @@ namespace PersonnelDepartment.Windows
         {
             var frm = new CityWindow();
             frm.ShowDialog();
+            ReloadCities();
         }
 
         private void AddEduTypeBtn_Click(object sender, RoutedEventArgs e)
         {
             var frm = new EducationTypeWindow();
             frm.ShowDialog();
+            ReloadEducationTypes();
         }
 
         private void AddSpecialtyBtn_Click(object sender, RoutedEventArgs e)
         {
             var frm = new SpecialtyWindow();
             frm.ShowDialog();
+            ReloadSpecialties();
         }
     }
 }
