@@ -10,9 +10,14 @@ namespace PersonnelDepartment.Windows
     /// </summary>
     public partial class BusinessTripWindow : Window
     {
-        public BusinessTripWindow()
+        internal BusinessTripWindow()
         {
             InitializeComponent();
+        }
+
+        internal BusinessTripWindow(User user) : this()
+        {
+            AddOrganizationBtn.IsEnabled = user.Permissions.HasFlag(Permissions.AddInnerInfo);
             LoadData();
         }
 

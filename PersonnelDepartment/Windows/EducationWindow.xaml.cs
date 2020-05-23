@@ -13,7 +13,15 @@ namespace PersonnelDepartment.Windows
         public EducationWindow()
         {
             InitializeComponent();
+        }
+
+        internal EducationWindow(User user) : this()
+        {
             LoadData();
+
+            AddCityBtn.IsEnabled = user.Permissions.HasFlag(Permissions.AddInnerInfo);
+            AddEduTypeBtn.IsEnabled = user.Permissions.HasFlag(Permissions.AddInnerInfo);
+            AddSpecialtyBtn.IsEnabled = user.Permissions.HasFlag(Permissions.AddInnerInfo);
         }
 
         private void LoadData()

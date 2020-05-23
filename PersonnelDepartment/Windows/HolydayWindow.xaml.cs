@@ -13,6 +13,10 @@ namespace PersonnelDepartment.Windows
         public HolydayWindow()
         {
             InitializeComponent();
+        }
+
+        internal HolydayWindow(User user) : this()
+        {
             LoadData();
         }
 

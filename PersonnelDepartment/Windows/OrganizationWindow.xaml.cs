@@ -12,7 +12,12 @@ namespace PersonnelDepartment.Windows
         public OrganizationWindow()
         {
             InitializeComponent();
+        }
+
+        internal OrganizationWindow(User user)
+        {
             LoadData();
+            AddCityBtn.IsEnabled = user.Permissions.HasFlag(Permissions.AddInnerInfo);
         }
 
         private void LoadData()

@@ -1,17 +1,6 @@
 ﻿using PersonnelDepartment.DTO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PersonnelDepartment.Helpers.Db;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace PersonnelDepartment.Windows
 {
@@ -20,6 +9,8 @@ namespace PersonnelDepartment.Windows
     /// </summary>
     public partial class PersonnelDepartmentWindow : Window
     {
+        private readonly User _user;
+
         public PersonnelDepartmentWindow()
         {
             InitializeComponent();
@@ -27,43 +18,63 @@ namespace PersonnelDepartment.Windows
 
         internal PersonnelDepartmentWindow(User user) : this()
         {
-            var wu = new WorkingUnit("Прогеры");
-            var p = new EmployeePosition("Джун");
-            var em = new Employee(1,"Иванов", "Иван", "Иванович", p, wu, DateTime.MinValue);
-            EmployeesGrid.Items.Add(em);
-            wu = new WorkingUnit("Тестеры");
-            p = new EmployeePosition("Мидл");
-            em = new Employee(1, "Петров", "Пётр", "Петрович", p, wu, DateTime.MaxValue);
-            EmployeesGrid.Items.Add(em);
+            _user = user;
+            LockForbiddenElements();
+            LoadEmployees();
+        }
+
+        private void LockForbiddenElements()
+        {
+            ExtendedEmploee.Visibility = _user.Permissions.HasFlag(Permissions.ReadExtendedEmInfo) ? Visibility.Visible : Visibility.Collapsed;
+            DelEmploee.Visibility = _user.Permissions.HasFlag(Permissions.Recruitment) ? Visibility.Visible : Visibility.Collapsed;
+            AddTrip.Visibility = _user.Permissions.HasFlag(Permissions.BusinessTrip) ? Visibility.Visible : Visibility.Collapsed;
+            AddHolyday.Visibility = _user.Permissions.HasFlag(Permissions.Holyday) ? Visibility.Visible : Visibility.Collapsed;
+            AddEmploee.Visibility = _user.Permissions.HasFlag(Permissions.Recruitment) ? Visibility.Visible : Visibility.Collapsed;
+            AddUser.Visibility = _user.Permissions.HasFlag(Permissions.Recruitment) ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        private void LoadEmployees()
+        {
+            EmployeesGrid.Items.Clear();
+            foreach(var em in DbReader.ReadEmploees())
+                EmployeesGrid.Items.Add(em);
         }
 
         private void ExtendedEmploee_Click(object sender, RoutedEventArgs e)
         {
-            var frm = new EmployeeWindow();
+            var frm = new EmployeeWindow(_user, null);
             frm.ShowDialog();
         }
 
         private void AddHolyday_Click(object sender, RoutedEventArgs e)
         {
-            var frm = new HolydayWindow();
+            var frm = new HolydayWindow(_user);
             frm.ShowDialog();
         }
 
         private void AddEmploee_Click(object sender, RoutedEventArgs e)
         {
-            var frm = new EmployeeWindow();
+            var frm = new EmployeeWindow(_user);
             frm.ShowDialog();
+            LoadEmployees();
         }
 
         private void DelEmploee_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Ты уволен!!!!");
+            LoadEmployees();
         }
 
         private void AddTrip_Click(object sender, RoutedEventArgs e)
         {
-            var frm = new BusinessTripWindow();
+            var frm = new BusinessTripWindow(_user);
             frm.ShowDialog();
+        }
+
+        private void AddUser_Click(object sender, RoutedEventArgs e)
+        {
+            var frm = new UserWindow();
+            frm.Show();
         }
     }
 }

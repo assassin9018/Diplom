@@ -12,7 +12,21 @@ namespace PersonnelDepartment.Windows
         public EmployeeWindow()
         {
             InitializeComponent();
+        }
+
+        internal EmployeeWindow(User user) : this()
+        {
             LoadData();
+        }
+
+        internal EmployeeWindow(User user, EmployeeExtended employeeExtended) : this()
+        {
+            AddCityBtn1.IsEnabled = user.Permissions.HasFlag(Permissions.AddInnerInfo);
+            AddCityBtn2.IsEnabled = user.Permissions.HasFlag(Permissions.AddInnerInfo);
+            AddEducationBtn.IsEnabled = user.Permissions.HasFlag(Permissions.AddInnerInfo);
+            AddPositionBtn.IsEnabled = user.Permissions.HasFlag(Permissions.AddInnerInfo);
+            AddUnitBtn.IsEnabled = user.Permissions.HasFlag(Permissions.AddInnerInfo);
+            //todo lock all buttons and show EmployeeData
         }
 
         private void LoadData()

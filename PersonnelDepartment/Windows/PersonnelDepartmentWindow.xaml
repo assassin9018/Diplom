@@ -16,6 +16,7 @@
         <Menu>
             <MenuItem Header="Сервис">
                 <MenuItem Header="Нанять сотрудника" Name="AddEmploee" Click="AddEmploee_Click"/>
+                <MenuItem Header="Добавил пользователя" Name="AddUser" Click="AddUser_Click"/>
             </MenuItem>
         </Menu>
 
