@@ -13,15 +13,6 @@ namespace PersonnelDepartment.Windows
         public AuthorizationWindow()
         {
             InitializeComponent();
-            try
-            {
-                string connStr = File.ReadAllText("SqlConn.txt");
-                ConnectionFactory.SetConnectionString(connStr);
-            }
-            catch
-            {
-                MessageBox.Show("Не удалось установить подключение к БД.");
-            }
         }
 
         private void Enter_Click(object sender, RoutedEventArgs e)

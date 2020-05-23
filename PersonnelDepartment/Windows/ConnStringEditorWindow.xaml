@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="Строка подключения" Height="300" Width="300">
     <Grid>
-        
+        <TextBox Margin="10,10,10,50" TextWrapping="Wrap" Name="ConnectionTb"/>
+        <Button Margin="10,0,0,20" Width="80" VerticalAlignment="Bottom" HorizontalAlignment="Left" Content="Изменить" x:Name="Enter" Click="Enter_Click"/>
+        <Button Margin="0,0,10,20" Width="80" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Отмена" x:Name="Exit" Click="Exit_Click"/>
     </Grid>
 </Window>
