@@ -97,6 +97,24 @@ namespace PersonnelDepartment {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Указан неверный логин пользователя..
+        /// </summary>
+        internal static string InvalidLogin {
+            get {
+                return ResourceManager.GetString("InvalidLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Указан неверный пароль пользователя..
+        /// </summary>
+        internal static string InvalidPassword {
+            get {
+                return ResourceManager.GetString("InvalidPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Во время выполнения запроса произошла ошибка. Проверьте подключение к базе данных..
         /// </summary>
         internal static string QueryError {

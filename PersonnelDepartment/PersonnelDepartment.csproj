@@ -101,7 +101,7 @@
     <Compile Include="Windows\HolydayWindow.xaml.cs">
       <DependentUpon>HolydayWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\Md5HashCreator.cs" />
+    <Compile Include="Helpers\AutorizationHelper.cs" />
     <Compile Include="Windows\PersonnelDepartmentWindow.xaml.cs">
       <DependentUpon>PersonnelDepartmentWindow.xaml</DependentUpon>
     </Compile>

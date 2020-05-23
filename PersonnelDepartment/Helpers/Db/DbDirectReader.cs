@@ -278,6 +278,32 @@ namespace PersonnelDepartment.Helpers.Db
             return resultValue;
         }
 
+        internal static User GetUserByLogin(string login)
+        {            
+            const string sqlExpression = "UserByLogin";
+            User resultValue = null;
+
+            using(SqlConnection connection = ConnectionFactory.GetSqlConnection())
+            {
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                // указываем, что команда представляет хранимую процедуру
+                command.CommandType = CommandType.StoredProcedure;
+                // параметр для ввода идентификатора
+                SqlParameter nameParam = new SqlParameter("@Login", login);
+                // добавляем параметр
+                command.Parameters.Add(nameParam);
+
+                //если запись найдена, то читаем её и создаём запрошенный объект
+                using(var reader = command.ExecuteReader())
+                    if(reader.HasRows && reader.Read())
+                        resultValue = new User(reader);
+                    else
+                        throw new InvalidOperationException(RuStrings.InvalidLogin);
+            }
+
+            return resultValue;
+        }
+
         public static WorkingUnit GetWorkingUnit(int rowId)
         {
             const string sqlExpression = "UserById";

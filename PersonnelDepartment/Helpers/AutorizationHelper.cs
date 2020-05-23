@@ -1,34 +1,14 @@
-﻿using System;
+﻿using PersonnelDepartment.DTO;
+using PersonnelDepartment.Helpers.Db;
+using System;
 using System.Security.Cryptography;
 using System.Text;
 
 namespace PersonnelDepartment.Helpers
 {
-    internal class Md5HashCreator
+    internal class AutorizationHelper
     {
-        static void UsageExample(string[] args)
-        {
-            string source = "Hello World!";
-            using(MD5 md5Hash = MD5.Create())
-            {
-                string hash = GetMd5Hash(md5Hash, source);
-
-                Console.WriteLine("The MD5 hash of " + source + " is: " + hash + ".");
-
-                Console.WriteLine("Verifying the hash...");
-
-                if(VerifyMd5Hash(md5Hash, source, hash))
-                {
-                    Console.WriteLine("The hashes are the same.");
-                }
-                else
-                {
-                    Console.WriteLine("The hashes are not same.");
-                }
-            }
-        }
-
-        static string GetMd5Hash(MD5 md5Hash, string input)
+        private static string GetMd5Hash(MD5 md5Hash, string input)
         {
 
             // Convert the input string to a byte array and compute the hash.
@@ -50,7 +30,7 @@ namespace PersonnelDepartment.Helpers
         }
 
         // Verify a hash against a string.
-        static bool VerifyMd5Hash(MD5 md5Hash, string input, string hash)
+        private static bool VerifyMd5Hash(MD5 md5Hash, string input, string hash)
         {
             // Hash the input.
             string hashOfInput = GetMd5Hash(md5Hash, input);
@@ -66,6 +46,24 @@ namespace PersonnelDepartment.Helpers
             {
                 return false;
             }
+        }
+
+        /// <summary>
+        /// Возращает пользователя при успешной авторизации, иначе выбрасывает <see cref="InvalidOperationException"/>
+        /// </summary>
+        /// <param name="login">Логин</param>
+        /// <param name="password">Пароль</param>
+        /// <returns>Пользователь с переданной парой логин\пароль</returns
+        public static User TryGetUser(string login, string password, out User user)
+        {
+            user = DbDirectReader.GetUserByLogin(login);
+
+            //не проверяем на null, т.к. если пользователь не найден, то будет проброшено исключение
+            using(MD5 md5Hash = MD5.Create())
+                if(!VerifyMd5Hash(md5Hash, password, user.Password))
+                    throw new InvalidOperationException(RuStrings.InvalidPassword);
+
+            return user;
         }
     }
 }

@@ -129,6 +129,12 @@
   <data name="InvalidData" xml:space="preserve">
     <value>На форме  указаны некорректные данные.</value>
   </data>
+  <data name="InvalidLogin" xml:space="preserve">
+    <value>Указан неверный логин пользователя.</value>
+  </data>
+  <data name="InvalidPassword" xml:space="preserve">
+    <value>Указан неверный пароль пользователя.</value>
+  </data>
   <data name="QueryError" xml:space="preserve">
     <value>Во время выполнения запроса произошла ошибка. Проверьте подключение к базе данных.</value>
   </data>
