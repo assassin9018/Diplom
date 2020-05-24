@@ -64,7 +64,7 @@
     <Compile Include="DTO\EmployeeBase.cs" />
     <Compile Include="DTO\EmployeeExtended.cs" />
     <Compile Include="DTO\EmployeePosition.cs" />
-    <Compile Include="DTO\Holyday.cs" />
+    <Compile Include="DTO\Holiday.cs" />
     <Compile Include="DTO\ITableRow.cs" />
     <Compile Include="DTO\Organization.cs" />
     <Compile Include="DTO\OrganizationBase.cs" />
@@ -103,8 +103,8 @@
     <Compile Include="Windows\HolidayViewWindow.xaml.cs">
       <DependentUpon>HolidayViewWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\HolydayWindow.xaml.cs">
-      <DependentUpon>HolydayWindow.xaml</DependentUpon>
+    <Compile Include="Windows\HolidayWindow.xaml.cs">
+      <DependentUpon>HolidayWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\AutorizationHelper.cs" />
     <Compile Include="Windows\PersonnelDepartmentWindow.xaml.cs">
@@ -177,7 +177,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\HolydayWindow.xaml">
+    <Page Include="Windows\HolidayWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -26,10 +26,12 @@ namespace PersonnelDepartment.DTO
         /// Дата начала отпуска
         /// </summary>
         public DateTime BeginDate { get; }
+        public string BeginDateString => BeginDate.ToLongDateString();
         /// <summary>
         /// Дата окончания отпуска
         /// </summary>
         public DateTime EndDate { get; }
+        public string EndDateString => EndDate.ToLongDateString();
         /// <summary>
         /// Оплачивается ли отпуск
         /// </summary>

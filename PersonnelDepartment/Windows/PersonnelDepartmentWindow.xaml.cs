@@ -99,7 +99,7 @@ namespace PersonnelDepartment.Windows
 
         private void AddHolyday_Click(object sender, RoutedEventArgs e)
         {
-            var frm = new HolydayWindow(_user);
+            var frm = new HolidayWindow(_user);
             frm.ShowDialog();
         }
 
@@ -152,7 +152,8 @@ namespace PersonnelDepartment.Windows
 
         private void ShowHolidays_Click(object sender, RoutedEventArgs e)
         {
-
+            var frm = new HolidayViewWindow(_user);
+            frm.ShowDialog();
         }
 
         private void ShowTrips_Click(object sender, RoutedEventArgs e)

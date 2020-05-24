@@ -104,11 +104,11 @@ namespace PersonnelDepartment.Helpers.Db
             }
         }
 
-        public static IEnumerable<Holiday> ReadHolydays()
+        public static IEnumerable<Holiday> ReadHolidays()
         {
             using(var connection = ConnectionFactory.GetSqlConnection())
             {
-                var command = new SqlCommand("HolydaysView", connection);
+                var command = new SqlCommand("HolidaysView", connection);
                 using(var reader = command.ExecuteReader())
                 {
                     if(reader.HasRows)

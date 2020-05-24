@@ -8,14 +8,14 @@ namespace PersonnelDepartment.Windows
     /// <summary>
     /// Логика взаимодействия для Holyday.xaml
     /// </summary>
-    public partial class HolydayWindow : Window
+    public partial class HolidayWindow : Window
     {
-        public HolydayWindow()
+        public HolidayWindow()
         {
             InitializeComponent();
         }
 
-        internal HolydayWindow(User user) : this()
+        internal HolidayWindow(User user) : this()
         {
             LoadData();
         }

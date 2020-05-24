@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PersonnelDepartment.Windows"
         mc:Ignorable="d"
-        Title="HolidayViewWindow" Height="450" Width="800">
+        Title="Отпуска" Height="450" Width="600">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Menu>
+            <MenuItem Header="Сервис">
+                <MenuItem Header="Добавить" Name="AddHoliday" Click="AddHoliday_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <Grid Grid.Row="1" Margin="0,0,0,0">
+            <DataGrid Margin="10,10,10,10" Name="HolidaysGrid" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Работник"  Binding="{Binding Employee}"/>
+                    <DataGridTextColumn Header="Оплачиваемый" Binding="{Binding IsPaid}" />
+                    <DataGridTextColumn Header="Дата начала" Binding="{Binding BeginDateString}" />
+                    <DataGridTextColumn Header="Дата окончания" Binding="{Binding EndDateString}" />
+                </DataGrid.Columns>
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem  Header="Отменить" Name="DelHoliday" Click="DelHoliday_Click"/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+            </DataGrid>
+        </Grid>
     </Grid>
 </Window>
