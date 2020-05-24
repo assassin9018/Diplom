@@ -18,7 +18,7 @@ namespace PersonnelDepartment.Windows
         private void Enter_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            var frm = new PersonnelDepartmentWindow(new User("", "", null, Permissions.None));
+            var frm = new PersonnelDepartmentWindow(new User("", "", null, Permissions.All));
             frm.ShowDialog();
             Close();
         }

@@ -112,7 +112,6 @@ namespace PersonnelDepartment.DTO
 
             IsMarried = reader.GetBoolean(reader.GetOrdinal(CIsMarried));
             ChildrenCount = reader.GetInt32(reader.GetOrdinal(CChildrenCount));
-            Education = new Education(reader);
         }
 
         public EmployeeExtended(EmployeeWindow employeeWindow) : base(employeeWindow)

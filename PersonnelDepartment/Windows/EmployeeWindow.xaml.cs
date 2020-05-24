@@ -1,6 +1,6 @@
 ﻿using PersonnelDepartment.DTO;
 using PersonnelDepartment.Helpers.Db;
-using System;
+using System.Linq;
 using System.Windows;
 
 namespace PersonnelDepartment.Windows
@@ -10,6 +10,8 @@ namespace PersonnelDepartment.Windows
     /// </summary>
     public partial class EmployeeWindow : Window
     {
+        private readonly int _id;
+
         public EmployeeWindow()
         {
             InitializeComponent();
@@ -17,17 +19,76 @@ namespace PersonnelDepartment.Windows
 
         internal EmployeeWindow(User user) : this()
         {
-            LoadData();
+            LoadInnerData();
             LockIfForbidden(user);
+            _id = -1;
         }
 
-        internal EmployeeWindow(User user, EmployeeExtended employeeExtended) : this()
+        internal EmployeeWindow(User user, EmployeeExtended employeeExtended, bool @readonly) : this()
         {
+            _id = employeeExtended.Id;
+            LoadInnerData();
             LockIfForbidden(user);
-            ShowEmloyeeData(employeeExtended);
+            ShowEmloyeeData(employeeExtended, @readonly);
         }
 
-        private void ShowEmloyeeData(EmployeeExtended employeeExtended) => throw new NotImplementedException();
+        private void ShowEmloyeeData(EmployeeExtended em, bool @readonly)
+        {
+            EmName.Text = em.Name;
+            EmName.IsReadOnly = @readonly;
+            EmSurname.Text = em.Surname;
+            EmSurname.IsReadOnly = @readonly;
+            EmPatronymic.Text = em.Patronymic;
+            EmPatronymic.IsReadOnly = @readonly;
+            EmBirthDay.SelectedDate = em.Birthday;
+            EmBirthDay.IsEnabled = !@readonly;
+            EmChildren.Text = em.ChildrenCount.ToString();
+            EmChildren.IsReadOnly = @readonly;
+            EmIsMarried.IsChecked = em.IsMarried;
+            EmIsMarried.IsEnabled = !@readonly;
+            EmPaspWho.Text = em.PaspWho;
+            EmPaspWho.IsReadOnly = @readonly;
+            EmPassportCode.Text = em.PassportCode.ToString();
+            EmPassportCode.IsReadOnly = @readonly;
+            EmPassportDate.SelectedDate = em.PassportDate;
+            EmPassportDate.IsEnabled = !@readonly;
+            EmPasNumber.Text = em.PassportNumber.ToString();
+            EmPasNumber.IsReadOnly = @readonly;
+            EmPasSeria.Text = em.PassportSeria.ToString();
+            EmPasSeria.IsReadOnly = @readonly;
+            EmPlaceOfRegistration.Text = em.PlaceOfRegistration;
+            EmPlaceOfRegistration.IsReadOnly = @readonly;
+            EmPlaceOfResidence.Text = em.PlaceOfResidence;
+            EmPlaceOfResidence.IsReadOnly = @readonly;
+
+            int index = EmUnit.Items.Cast<WorkingUnit>().TakeWhile(un => un.Id != em.Unit.Id).Count();
+            index = index == EmUnit.Items.Count ? -1 : index;
+            EmUnit.SelectedIndex = index;
+            EmUnit.IsEnabled = !@readonly;
+
+            index = EmEducation.Items.Cast<Education>().TakeWhile(ed => ed.Id != em.Education.Id).Count();
+            index = index == EmEducation.Items.Count ? -1 : index;
+            EmEducation.SelectedIndex = index;
+            EmEducation.IsEnabled = !@readonly;
+
+            index = EmPosition.Items.Cast<EmployeePosition>().TakeWhile(ps => ps.Id != em.Position.Id).Count();
+            index = index == EmPosition.Items.Count ? -1 : index;
+            EmPosition.SelectedIndex = index;
+            EmPosition.IsEnabled = !@readonly;
+
+            index = EmCityOfRegistration.Items.Cast<City>().TakeWhile(ct => ct.Id != em.CityOfRegistration.Id).Count();
+            index = index == EmCityOfRegistration.Items.Count ? -1 : index;
+            EmCityOfRegistration.SelectedIndex = index;
+            EmCityOfRegistration.IsEnabled = !@readonly;
+
+            index = EmCityOfResidence.Items.Cast<City>().TakeWhile(ct => ct.Id != em.CityOfResidence.Id).Count();
+            index = index == EmCityOfResidence.Items.Count ? -1 : index;
+            EmCityOfResidence.SelectedIndex = index;
+            EmCityOfResidence.IsEnabled = !@readonly;
+
+            Enter.IsEnabled = !@readonly;
+            Exit.IsEnabled = !@readonly;
+        }
 
         private void LockIfForbidden(User user)
         {
@@ -39,7 +100,7 @@ namespace PersonnelDepartment.Windows
             AddUnitBtn.IsEnabled = flag;
         }
 
-        private void LoadData()
+        private void LoadInnerData()
         {
             ReloadCities();
             ReloadPositions();

@@ -85,8 +85,12 @@ namespace PersonnelDepartment.Windows
 
         private void ExtendedEmploee_Click(object sender, RoutedEventArgs e)
         {
-            var frm = new EmployeeWindow(_user, null);
-            frm.ShowDialog();
+            if(_user.Permissions.HasFlag(Permissions.ReadExtendedEmInfo) && EmployeesGrid.SelectedItem is Employee em)
+            {
+                var emExt = DbDirectReader.GetEmployee(em.Id);
+                var frm = new EmployeeWindow(_user, emExt, true);
+                frm.ShowDialog();
+            }
         }
 
         private void AddHolyday_Click(object sender, RoutedEventArgs e)
