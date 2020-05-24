@@ -11,6 +11,7 @@ namespace PersonnelDepartment.Windows
     /// </summary>
     public partial class BusinessTripWindow : Window
     {
+        private readonly User _user;
 
         internal BusinessTripWindow()
         {
@@ -25,6 +26,7 @@ namespace PersonnelDepartment.Windows
 
         internal BusinessTripWindow(User user, Employee employee) : this(user)
         {
+            _user = user;
             int index = EmployeeCb.Items.Cast<EmployeeBase>().TakeWhile(em => em.Id != employee.Id).Count();
             index = index == EmployeeCb.Items.Count ? -1 : index;
             EmployeeCb.SelectedIndex = index;
@@ -86,7 +88,7 @@ namespace PersonnelDepartment.Windows
 
         private void AddOrganizationBtn_Click(object sender, RoutedEventArgs e)
         {
-            var frm = new OrganizationWindow();
+            var frm = new OrganizationWindow(_user);
             frm.ShowDialog();
             ReloadData();
         }

@@ -11,6 +11,7 @@ namespace PersonnelDepartment.Windows
     public partial class EmployeeWindow : Window
     {
         private readonly int _id;
+        private readonly User _user;
 
         public EmployeeWindow()
         {
@@ -19,12 +20,13 @@ namespace PersonnelDepartment.Windows
 
         internal EmployeeWindow(User user) : this()
         {
+            _user = user;
             LoadInnerData();
             LockIfForbidden(user);
             _id = -1;
         }
 
-        internal EmployeeWindow(User user, EmployeeExtended employeeExtended, bool @readonly) : this()
+        internal EmployeeWindow(User user, EmployeeExtended employeeExtended, bool @readonly) : this(user)
         {
             _id = employeeExtended.Id;
             LoadInnerData();
@@ -223,7 +225,7 @@ namespace PersonnelDepartment.Windows
 
         private void AddEducationBtn_Click(object sender, RoutedEventArgs e)
         {
-            var frm = new EducationWindow();
+            var frm = new EducationWindow(_user);
             frm.ShowDialog();
             ReloadEducations();
         }

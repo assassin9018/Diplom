@@ -14,7 +14,7 @@ namespace PersonnelDepartment.Windows
             InitializeComponent();
         }
 
-        internal OrganizationWindow(User user)
+        internal OrganizationWindow(User user) : this()
         {
             ReloadCities();
             AddCityBtn.IsEnabled = user.Permissions.HasFlag(Permissions.AddInnerInfo);

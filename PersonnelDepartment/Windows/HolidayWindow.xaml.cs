@@ -11,6 +11,8 @@ namespace PersonnelDepartment.Windows
     /// </summary>
     public partial class HolidayWindow : Window
     {
+        private readonly User _user;
+
         public HolidayWindow()
         {
             InitializeComponent();
@@ -18,6 +20,7 @@ namespace PersonnelDepartment.Windows
 
         internal HolidayWindow(User user) : this()
         {
+            _user = user;
             LoadData();
         }
 
@@ -70,11 +73,5 @@ namespace PersonnelDepartment.Windows
             && IsPaidCb.IsChecked != null
             && StartDateDp.SelectedDate != null
             && EndDateDp.SelectedDate != null;
-
-        private void AddOrganizationBtn_Click(object sender, RoutedEventArgs e)
-        {
-            var frm = new OrganizationWindow();
-            frm.ShowDialog();
-        }
     }
 }
