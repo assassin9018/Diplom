@@ -171,7 +171,8 @@ namespace PersonnelDepartment.Helpers.Db
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add(new SqlParameter("@Login", obj.Login));
-                command.Parameters.Add(new SqlParameter("@Password", obj.Password));
+                string password = AutorizationHelper.GetMd5Hash(obj.Password);
+                command.Parameters.Add(new SqlParameter("@Password", password));
                 command.Parameters.Add(new SqlParameter("@Permissions", obj.Permissions));
                 command.Parameters.Add(new SqlParameter("@EmId", obj.Employee.Id));
 

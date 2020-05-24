@@ -9,7 +9,13 @@ namespace PersonnelDepartment.Helpers
     internal class AutorizationHelper
     {
         //код позаимствован из официальной документации на MSDN
-        
+
+        public static string GetMd5Hash(string input)
+        {
+            using(MD5 md5Hash = MD5.Create())
+                return GetMd5Hash(md5Hash, input);
+        }
+
         private static string GetMd5Hash(MD5 md5Hash, string input)
         {
 
