@@ -79,6 +79,9 @@
     <Compile Include="Helpers\ThrowHelper.cs" />
     <Compile Include="Helpers\Utils.cs" />
     <Compile Include="Helpers\Validator.cs" />
+    <Compile Include="Windows\BusinessTripViewWindow.xaml.cs">
+      <DependentUpon>BusinessTripViewWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\BusinessTripWindow.xaml.cs">
       <DependentUpon>BusinessTripWindow.xaml</DependentUpon>
     </Compile>
@@ -96,6 +99,9 @@
     </Compile>
     <Compile Include="Windows\EmployeeWindow.xaml.cs">
       <DependentUpon>EmployeeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\HolidayViewWindow.xaml.cs">
+      <DependentUpon>HolidayViewWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\HolydayWindow.xaml.cs">
       <DependentUpon>HolydayWindow.xaml</DependentUpon>
@@ -118,6 +124,9 @@
     <Compile Include="Windows\SpecialtyWindow.xaml.cs">
       <DependentUpon>SpecialtyWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\UsersViewWindow.xaml.cs">
+      <DependentUpon>UsersViewWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\UserWindow.xaml.cs">
       <DependentUpon>UserWindow.xaml</DependentUpon>
     </Compile>
@@ -136,6 +145,10 @@
       <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Windows\BusinessTripViewWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\BusinessTripWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -160,6 +173,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\HolidayViewWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\HolydayWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -177,6 +194,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\SpecialtyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UsersViewWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -157,7 +157,8 @@ namespace PersonnelDepartment.Windows
 
         private void ShowTrips_Click(object sender, RoutedEventArgs e)
         {
-
+            var frm = new BusinessTripViewWindow(_user);
+            frm.ShowDialog();
         }
 
         private void ShowUsers_Click(object sender, RoutedEventArgs e)
