@@ -1,6 +1,7 @@
 ﻿using PersonnelDepartment.DTO;
 using PersonnelDepartment.Helpers.Db;
 using System;
+using System.Linq;
 using System.Windows;
 
 namespace PersonnelDepartment.Windows
@@ -18,6 +19,13 @@ namespace PersonnelDepartment.Windows
         internal HolidayWindow(User user) : this()
         {
             LoadData();
+        }
+
+        internal HolidayWindow(User user, Employee employee) : this(user)
+        {
+            int index = EmployeeCb.Items.Cast<EmployeeBase>().TakeWhile(em => em.Id != employee.Id).Count();
+            index = index == EmployeeCb.Items.Count ? -1 : index;
+            EmployeeCb.SelectedIndex = index;
         }
 
         private void LoadData()

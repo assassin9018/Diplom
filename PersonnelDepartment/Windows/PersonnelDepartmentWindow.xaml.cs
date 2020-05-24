@@ -99,8 +99,11 @@ namespace PersonnelDepartment.Windows
 
         private void AddHolyday_Click(object sender, RoutedEventArgs e)
         {
-            var frm = new HolidayWindow(_user);
-            frm.ShowDialog();
+            if(EmployeesGrid.SelectedItem is Employee em)
+            {
+                var frm = new HolidayWindow(_user, em);
+                frm.ShowDialog();
+            }
         }
 
         private void AddEmploee_Click(object sender, RoutedEventArgs e)
@@ -122,8 +125,11 @@ namespace PersonnelDepartment.Windows
 
         private void AddTrip_Click(object sender, RoutedEventArgs e)
         {
-            var frm = new BusinessTripWindow(_user);
-            frm.ShowDialog();
+            if(EmployeesGrid.SelectedItem is Employee em)
+            {
+                var frm = new BusinessTripWindow(_user, em);
+                frm.ShowDialog();
+            }
         }
 
         private void AddUser_Click(object sender, RoutedEventArgs e)

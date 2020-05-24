@@ -1,6 +1,7 @@
 ﻿using PersonnelDepartment.DTO;
 using PersonnelDepartment.Helpers.Db;
 using System;
+using System.Linq;
 using System.Windows;
 
 namespace PersonnelDepartment.Windows
@@ -10,6 +11,7 @@ namespace PersonnelDepartment.Windows
     /// </summary>
     public partial class BusinessTripWindow : Window
     {
+
         internal BusinessTripWindow()
         {
             InitializeComponent();
@@ -19,6 +21,13 @@ namespace PersonnelDepartment.Windows
         {
             AddOrganizationBtn.IsEnabled = user.Permissions.HasFlag(Permissions.AddInnerInfo);
             LoadData();
+        }
+
+        internal BusinessTripWindow(User user, Employee employee) : this(user)
+        {
+            int index = EmployeeCb.Items.Cast<EmployeeBase>().TakeWhile(em => em.Id != employee.Id).Count();
+            index = index == EmployeeCb.Items.Count ? -1 : index;
+            EmployeeCb.SelectedIndex = index;
         }
 
         private void LoadData()
