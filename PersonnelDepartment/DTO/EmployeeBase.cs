@@ -55,6 +55,12 @@ namespace PersonnelDepartment.DTO
             Patronymic = employeeWindow.EmPatronymic.Text;
         }
 
+        public bool Contains(string fioPart)
+        {
+            fioPart = fioPart.ToUpper();
+            return Name.ToUpper().Contains(fioPart) || Surname.ToUpper().Contains(fioPart) || Patronymic.ToUpper().Contains(fioPart);
+        }
+
         public override string ToString() => Utils.GetShortName(Surname, Name, Patronymic);
     }
 }

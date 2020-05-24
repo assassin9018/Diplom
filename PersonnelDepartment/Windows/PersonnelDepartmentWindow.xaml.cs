@@ -138,24 +138,6 @@ namespace PersonnelDepartment.Windows
             frm.Show();
         }
 
-        private void Filter_Changed(object sender, SelectionChangedEventArgs e)
-        {
-            if(_employees == null)
-                return;
-            EmployeesGrid.Items.Clear();
-            var items = _employees.AsEnumerable();
-            IEnumerable<Employee> afterPosFilter = items;
-            if(PositionFilter.SelectedItem is EmployeePosition pos)
-                afterPosFilter = items.Where(x => x.Position.Id == pos.Id);
-
-            IEnumerable<Employee> afterUnitFilter = afterPosFilter;
-            if(UnitFilter.SelectedItem is WorkingUnit unit)
-                afterUnitFilter = items.Where(x => x.Unit.Id == unit.Id);
-
-            foreach(var item in afterUnitFilter)
-                EmployeesGrid.Items.Add(item);
-        }
-
         private void ShowHolidays_Click(object sender, RoutedEventArgs e)
         {
             var frm = new HolidayViewWindow(_user);
@@ -182,6 +164,59 @@ namespace PersonnelDepartment.Windows
                 var frm = new EmployeeWindow(_user, emExt, false);
                 frm.ShowDialog();
             }
+        }
+
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if(SearchRbt.IsChecked.Value)
+                Search();
+        }
+
+        private void Filter_Changed(object sender, SelectionChangedEventArgs e)
+            => SearchOrFilter();
+
+        private void RbtChanged(object sender, RoutedEventArgs e)
+            => SearchOrFilter();
+
+        private void SearchOrFilter()
+        {
+            if(_employees == null)
+                return;
+
+            if(SearchRbt.IsChecked.Value)
+                Search();
+            else
+                Filter();
+        }
+
+        private void Search()
+        {
+            if(_employees == null)
+                return;
+
+            EmployeesGrid.Items.Clear();
+            string searchText = SearchBox.Text;
+            foreach(var item in _employees.Where(em => em.Contains(searchText)))
+                EmployeesGrid.Items.Add(item);
+        }
+
+        private void Filter()
+        {
+            if(_employees == null)
+                return;
+
+            EmployeesGrid.Items.Clear();
+            var items = _employees.AsEnumerable();
+            IEnumerable<Employee> afterPosFilter = items;
+            if(PositionFilter.SelectedItem is EmployeePosition pos)
+                afterPosFilter = items.Where(x => x.Position.Id == pos.Id);
+
+            IEnumerable<Employee> afterUnitFilter = afterPosFilter;
+            if(UnitFilter.SelectedItem is WorkingUnit unit)
+                afterUnitFilter = items.Where(x => x.Unit.Id == unit.Id);
+
+            foreach(var item in afterUnitFilter)
+                EmployeesGrid.Items.Add(item);
         }
     }
 }

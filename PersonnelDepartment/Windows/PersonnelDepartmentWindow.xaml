@@ -9,7 +9,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height = "18"/>
-            <RowDefinition Height = "50"/>
+            <RowDefinition Height = "60"/>
             <RowDefinition Height = "1*"/>
         </Grid.RowDefinitions>
 
@@ -23,10 +23,15 @@
             </MenuItem>
         </Menu>
 
-        <TextBlock Margin="10,0,0,20" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Фильтр по должностям"/>
-        <ComboBox Margin="10,20,0,0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="130" Name="PositionFilter" SelectionChanged="Filter_Changed"/>
-        <TextBlock Margin="160,0,0,20" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Фильтр по подразделениям"/>
-        <ComboBox Margin="160,20,0,0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="130" Name="UnitFilter" SelectionChanged="Filter_Changed"/>
+        <RadioButton Name="SearchRbt" Margin="360,0,0,30" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Поиск" IsChecked="True" Checked="RbtChanged" Unchecked="RbtChanged"/>
+        <RadioButton Name="FilterRbt" Margin="360,30,0,0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Фильтрация" IsChecked="False" Checked="RbtChanged" Unchecked="RbtChanged"/>
+        
+        <TextBlock Margin="10,0,0,30" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Text="Фильтр по должностям" TextWrapping="Wrap"/>
+        <ComboBox Margin="10,30,0,0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Name="PositionFilter" SelectionChanged="Filter_Changed"/>
+        <TextBlock Margin="120,0,0,30" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Text="Фильтр по подразделениям" TextWrapping="Wrap"/>
+        <ComboBox Margin="120,30,0,0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Name="UnitFilter" SelectionChanged="Filter_Changed"/>
+        <TextBlock Margin="240,0,0,30" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Text="Поиск по ФИО" TextWrapping="Wrap"/>
+        <TextBox Margin="240,30,0,0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Name="SearchBox" TextChanged="SearchBox_TextChanged"/>
         
 
         <Grid Grid.Column="0" Grid.Row="2" Margin="0,0,0,0">
