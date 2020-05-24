@@ -54,6 +54,36 @@ namespace PersonnelDepartment.Helpers.Db
             }
         }
 
+        public static void RemoveBusinessTrip(BusinessTrip trip)
+        {
+            const string sqlExpression = "DeleteBusinessTrip";
+
+            using(SqlConnection connection = ConnectionFactory.GetSqlConnection())
+            {
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.CommandType = CommandType.StoredProcedure;
+                SqlParameter nameParam = new SqlParameter("@Id", trip.Id);
+                command.Parameters.Add(nameParam);
+
+                int stringsCount = command.ExecuteNonQuery();
+            }
+        }
+
+        public static void RemoveHoliday(Holiday holiday)
+        {
+            const string sqlExpression = "DeleteHoliday";
+
+            using(SqlConnection connection = ConnectionFactory.GetSqlConnection())
+            {
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.CommandType = CommandType.StoredProcedure;
+                SqlParameter nameParam = new SqlParameter("@Id", holiday.Id);
+                command.Parameters.Add(nameParam);
+
+                int stringsCount = command.ExecuteNonQuery();
+            }
+        }
+
         public static void UpdateEmployee(EmployeeExtended obj)
         {
             const string sqlExpression = "UpdateEmployee";
