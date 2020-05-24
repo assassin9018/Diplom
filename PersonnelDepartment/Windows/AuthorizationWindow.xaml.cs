@@ -1,6 +1,6 @@
 ﻿using PersonnelDepartment.DTO;
 using PersonnelDepartment.Helpers;
-using System.IO;
+using System;
 using System.Windows;
 
 namespace PersonnelDepartment.Windows
@@ -17,10 +17,18 @@ namespace PersonnelDepartment.Windows
 
         private void Enter_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
-            var frm = new PersonnelDepartmentWindow(new User("", "", null, Permissions.All));
-            frm.ShowDialog();
-            Close();
+            try
+            {
+                User user = AutorizationHelper.TryGetUser(Login.Text, Password.Password);
+                Hide();
+                var frm = new PersonnelDepartmentWindow(user);
+                frm.ShowDialog();
+                Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)

@@ -8,6 +8,8 @@ namespace PersonnelDepartment.Helpers
 {
     internal class AutorizationHelper
     {
+        //код позаимствован из официальной документации на MSDN
+        
         private static string GetMd5Hash(MD5 md5Hash, string input)
         {
 
@@ -38,14 +40,7 @@ namespace PersonnelDepartment.Helpers
             // Create a StringComparer an compare the hashes.
             StringComparer comparer = StringComparer.OrdinalIgnoreCase;
 
-            if(0 == comparer.Compare(hashOfInput, hash))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return 0 == comparer.Compare(hashOfInput, hash);
         }
 
         /// <summary>
@@ -54,9 +49,9 @@ namespace PersonnelDepartment.Helpers
         /// <param name="login">Логин</param>
         /// <param name="password">Пароль</param>
         /// <returns>Пользователь с переданной парой логин\пароль</returns
-        public static User TryGetUser(string login, string password, out User user)
+        public static User TryGetUser(string login, string password)
         {
-            user = DbDirectReader.GetUserByLogin(login);
+            User user = DbDirectReader.GetUserByLogin(login);
 
             //не проверяем на null, т.к. если пользователь не найден, то будет проброшено исключение
             using(MD5 md5Hash = MD5.Create())
