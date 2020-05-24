@@ -8,7 +8,7 @@ namespace PersonnelDepartment.DTO
     /// </summary>
     internal class BusinessTrip : ITableRow
     {
-        private const string Prefix = "Ct";
+        private const string Prefix = "Bt";
         private const string CId = Prefix + "Id";
         private const string CBeginDate = Prefix + "BeginDate";
         private const string CEndDate = Prefix + "EndDate";
@@ -29,10 +29,12 @@ namespace PersonnelDepartment.DTO
         /// Дата начала командировки
         /// </summary>
         public DateTime BeginDate { get; }
+        public string BeginDateString => BeginDate.ToLongDateString();
         /// <summary>
         /// Дата окончания командировки
         /// </summary>
         public DateTime EndDate { get; }
+        public string EndDateString => EndDate.ToLongDateString();
 
         public BusinessTrip(SqlDataReader reader)
         {
