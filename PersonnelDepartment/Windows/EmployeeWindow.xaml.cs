@@ -1,6 +1,5 @@
 ﻿using PersonnelDepartment.DTO;
 using PersonnelDepartment.Helpers.Db;
-using System;
 using System.Linq;
 using System.Windows;
 
@@ -145,6 +144,8 @@ namespace PersonnelDepartment.Windows
         {
             if(_id == -1 && TryWriteValue() || _id > -1 && TryUpdateValue())
                 Close();
+            else
+                MessageBox.Show(RuStrings.NotAllDataIsFilled);
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -162,8 +163,6 @@ namespace PersonnelDepartment.Windows
 
                 return true;
             }
-            else
-                MessageBox.Show(RuStrings.NotAllDataIsFilled);
 
             return false;
         }
@@ -178,8 +177,6 @@ namespace PersonnelDepartment.Windows
 
                 return true;
             }
-            else
-                MessageBox.Show(RuStrings.NotAllDataIsFilled);
 
             return false;
         }
