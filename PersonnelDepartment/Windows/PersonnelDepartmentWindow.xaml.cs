@@ -33,11 +33,11 @@ namespace PersonnelDepartment.Windows
             UpdateEmploee.Visibility = _user.Permissions.HasFlag(Permissions.Recruitment) ? Visibility.Visible : Visibility.Collapsed;
             DelEmploee.Visibility = _user.Permissions.HasFlag(Permissions.Recruitment) ? Visibility.Visible : Visibility.Collapsed;
             AddTrip.Visibility = _user.Permissions.HasFlag(Permissions.BusinessTrip) ? Visibility.Visible : Visibility.Collapsed;
-            AddHolyday.Visibility = _user.Permissions.HasFlag(Permissions.Holyday) ? Visibility.Visible : Visibility.Collapsed;
+            AddHolyday.Visibility = _user.Permissions.HasFlag(Permissions.Holiday) ? Visibility.Visible : Visibility.Collapsed;
             AddEmploee.Visibility = _user.Permissions.HasFlag(Permissions.Recruitment) ? Visibility.Visible : Visibility.Collapsed;
             AddUser.Visibility = _user.Permissions.HasFlag(Permissions.Recruitment) ? Visibility.Visible : Visibility.Collapsed;
             ShowTrips.Visibility = _user.Permissions.HasFlag(Permissions.BusinessTrip) ? Visibility.Visible : Visibility.Collapsed;
-            ShowHolidays.Visibility = _user.Permissions.HasFlag(Permissions.Holyday) ? Visibility.Visible : Visibility.Collapsed;
+            ShowHolidays.Visibility = _user.Permissions.HasFlag(Permissions.Holiday) ? Visibility.Visible : Visibility.Collapsed;
             ShowUsers.Visibility = _user.Permissions.HasFlag(Permissions.AddUsers) ? Visibility.Visible : Visibility.Collapsed;
         }
 
@@ -164,7 +164,8 @@ namespace PersonnelDepartment.Windows
 
         private void ShowUsers_Click(object sender, RoutedEventArgs e)
         {
-
+            var frm = new UsersViewWindow(_user);
+            frm.ShowDialog();
         }
 
         private void UpdateEmploee_Click(object sender, RoutedEventArgs e)

@@ -1,5 +1,7 @@
 ﻿using PersonnelDepartment.DTO;
 using PersonnelDepartment.Helpers.Db;
+using System;
+using System.Linq;
 using System.Windows;
 
 namespace PersonnelDepartment.Windows
@@ -9,10 +11,51 @@ namespace PersonnelDepartment.Windows
     /// </summary>
     public partial class UserWindow : Window
     {
+        private readonly User _user;
+
         public UserWindow()
         {
             InitializeComponent();
             LoadData();
+        }
+
+        internal UserWindow(User user, bool @readonly) : this()
+        {
+            _user = user;
+            ShowData();
+            if(@readonly)
+                LockAllElements();
+        }
+
+        private void ShowData()
+        {
+            int index = UserName.Items.Cast<EmployeeBase>().TakeWhile(em => em.Id != _user.Employee.Id).Count();
+            index = index == UserName.Items.Count ? -1 : index;
+            UserName.SelectedIndex = index;
+
+            Login.Text = _user.Login;
+            ReadExtendedEmInfo.IsChecked = _user.Permissions.HasFlag(Permissions.ReadExtendedEmInfo);
+            Recruitment.IsChecked = _user.Permissions.HasFlag(Permissions.Recruitment);
+            Holiday.IsChecked = _user.Permissions.HasFlag(Permissions.Holiday);
+            BusinessTrip.IsChecked = _user.Permissions.HasFlag(Permissions.BusinessTrip);
+            AddInnerInfo.IsChecked = _user.Permissions.HasFlag(Permissions.AddInnerInfo);
+            EditEmInfo.IsChecked = _user.Permissions.HasFlag(Permissions.EditEmInfo);
+            AddUsers.IsChecked = _user.Permissions.HasFlag(Permissions.AddUsers);
+        }
+
+        private void LockAllElements()
+        {
+            UserName.IsEnabled = false;
+            Login.IsReadOnly = true;
+            Password.IsEnabled = false;
+            PasswordConfirmation.IsEnabled = false;
+            ReadExtendedEmInfo.IsEnabled = false;
+            Recruitment.IsEnabled = false;
+            Holiday.IsEnabled = false;
+            BusinessTrip.IsEnabled = false;
+            AddInnerInfo.IsEnabled = false;
+            EditEmInfo.IsEnabled = false;
+            AddUsers.IsEnabled = false;
         }
 
         private void LoadData()
@@ -23,10 +66,29 @@ namespace PersonnelDepartment.Windows
 
         private void Enter_Click(object sender, RoutedEventArgs e)
         {
-            if(TryWriteValue())
+            if(_user == null && TryWriteValue() || _user != null && TryUpdateValue())
                 Close();
             else
                 MessageBox.Show(RuStrings.NotAllDataIsFilled);
+        }
+
+        private bool TryUpdateValue()
+        {
+            if(IsAllOk())
+            {
+                string login = Login.Text;
+                string password = Password.Password;
+                var employee = UserName.SelectedItem as EmployeeBase;
+                Permissions permissions = GetPermissions();
+
+                var value = new User(_user.Id, login, password, employee, permissions);
+
+                DbUpdater.UpdateUser(value);
+
+                return true;
+            }
+
+            return false;
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -34,7 +96,7 @@ namespace PersonnelDepartment.Windows
             Close();
         }
 
-        internal bool TryWriteValue()
+        private bool TryWriteValue()
         {
             if(IsAllOk())
             {
@@ -63,8 +125,8 @@ namespace PersonnelDepartment.Windows
             if(Recruitment.IsChecked ?? false)
                 perms |= Permissions.Recruitment;
 
-            if(Holyday.IsChecked ?? false)
-                perms |= Permissions.Holyday;
+            if(Holiday.IsChecked ?? false)
+                perms |= Permissions.Holiday;
 
             if(BusinessTrip.IsChecked ?? false)
                 perms |= Permissions.BusinessTrip;

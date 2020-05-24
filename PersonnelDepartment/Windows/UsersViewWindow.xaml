@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PersonnelDepartment.Windows"
         mc:Ignorable="d"
-        Title="UsersViewWindow" Height="450" Width="800">
+        Title="Пользователи" Height="450" Width="250">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Menu>
+            <MenuItem Header="Сервис">
+                <MenuItem Header="Добавить" Name="AddUser" Click="AddUser_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <Grid Grid.Row="1" Margin="0,0,0,0">
+            <DataGrid Margin="10,10,10,10" Name="UsersGrid" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Пользователь"  Binding="{Binding Employee}"/>
+                    <DataGridTextColumn Header="Логин" Binding="{Binding Login}"/>
+                </DataGrid.Columns>
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem  Header="Удалить" Name="DelUser" Click="DelUser_Click"/>
+                        <MenuItem  Header="Изменить" Name="UpdateUser" Click="UpdateUser_Click"/>
+                        <MenuItem  Header="Подробнее" Name="ShowUser" Click="ShowUser_Click"/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+            </DataGrid>
+        </Grid>
     </Grid>
 </Window>

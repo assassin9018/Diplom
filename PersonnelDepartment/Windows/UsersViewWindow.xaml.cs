@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PersonnelDepartment.DTO;
+using PersonnelDepartment.Helpers.Db;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace PersonnelDepartment.Windows
 {
@@ -19,9 +9,60 @@ namespace PersonnelDepartment.Windows
     /// </summary>
     public partial class UsersViewWindow : Window
     {
+        private readonly User _user;
+
         public UsersViewWindow()
         {
             InitializeComponent();
+        }
+
+        internal UsersViewWindow(User user) : this()
+        {
+            _user = user;
+            ReloadUsers();
+        }
+
+        private void ReloadUsers()
+        {
+            UsersGrid.Items.Clear();
+            foreach(var trip in DbReader.ReadUsers())
+                UsersGrid.Items.Add(trip);
+        }
+
+        private void DelUser_Click(object sender, RoutedEventArgs e)
+        {
+            if(UsersGrid.SelectedItem is User user)
+            {
+                DbUpdater.RemoveUser(_user, user);
+                ReloadUsers();
+            }
+        }
+
+        private void AddUser_Click(object sender, RoutedEventArgs e)
+        {
+            var frm = new UserWindow();
+            frm.ShowDialog();
+            ReloadUsers();
+        }
+
+        private void UpdateUser_Click(object sender, RoutedEventArgs e)
+        {
+            if(UsersGrid.SelectedItem is User user)
+            {
+                var frm = new UserWindow(user, false);
+                frm.ShowDialog();
+                ReloadUsers();
+            }
+        }
+
+        private void ShowUser_Click(object sender, RoutedEventArgs e)
+        {
+            if(UsersGrid.SelectedItem is User user)
+            {
+                var frm = new UserWindow(user, true);
+                frm.ShowDialog();
+                ReloadUsers();
+            }
         }
     }
 }

@@ -47,6 +47,15 @@ namespace PersonnelDepartment.DTO
             Employee = employee;
             Permissions = permissions;
         }
+
+        public User(int id, string login, string password, EmployeeBase employee, Permissions permissions)
+        {
+            Id = id;
+            Login = login;
+            Password = password;
+            Employee = employee;
+            Permissions = permissions;
+        }
     }
 
     public enum Permissions
@@ -54,7 +63,7 @@ namespace PersonnelDepartment.DTO
         None = 0,
         ReadExtendedEmInfo = 1,
         Recruitment = 1 << 1,
-        Holyday = 1 << 2,
+        Holiday = 1 << 2,
         BusinessTrip = 1 << 3,
         AddInnerInfo = 1 << 4,
         EditEmInfo = 1 << 5,

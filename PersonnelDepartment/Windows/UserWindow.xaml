@@ -65,7 +65,7 @@
                 <TextBlock TextWrapping="Wrap" Text="Приём на работу"/>
             </CheckBox>
 
-            <CheckBox Grid.Row="4" Margin="10,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Name="Holyday">
+            <CheckBox Grid.Row="4" Margin="10,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Name="Holiday">
                 <TextBlock TextWrapping="Wrap" Text="Выдача отпусков"/>
             </CheckBox>
 
