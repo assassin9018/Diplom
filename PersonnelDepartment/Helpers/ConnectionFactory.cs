@@ -8,6 +8,7 @@ namespace PersonnelDepartment.Helpers
     {
         private const string ConnFileName = "SqlConn.txt";
         private static string _connString = string.Empty;
+        private const string DefaultConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\MSSQL\Data\PersonnelDepartment.mdf;Integrated Security=True;";
 
         static ConnectionFactory()
         {
@@ -16,9 +17,13 @@ namespace PersonnelDepartment.Helpers
                 _connString = File.ReadAllText(ConnFileName);
             }
             catch
-            { 
+            {
+                File.WriteAllText(ConnFileName, DefaultConnectionString);
+                _connString = DefaultConnectionString;
             }
         }
+
+        public static string GetConnectionString() => _connString;
 
         public static SqlConnection GetSqlConnection()
         {

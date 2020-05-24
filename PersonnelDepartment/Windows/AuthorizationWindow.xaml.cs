@@ -30,7 +30,8 @@ namespace PersonnelDepartment.Windows
 
         private void ConnectionStringBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            var frm = new ConnStringEditorWindow();
+            frm.ShowDialog();
         }
     }
 }

@@ -12,6 +12,7 @@ namespace PersonnelDepartment.Windows
         public ConnStringEditorWindow()
         {
             InitializeComponent();
+            ConnectionTb.Text = ConnectionFactory.GetConnectionString();
         }
 
         private void Enter_Click(object sender, RoutedEventArgs e)
