@@ -24,20 +24,24 @@ namespace PersonnelDepartment.Windows
         {
             _user = user;
             LockForbiddenElements();
-            LoadEmployees();
+            ReloadEmployees();
         }
 
         private void LockForbiddenElements()
         {
             ExtendedEmploee.Visibility = _user.Permissions.HasFlag(Permissions.ReadExtendedEmInfo) ? Visibility.Visible : Visibility.Collapsed;
+            UpdateEmploee.Visibility = _user.Permissions.HasFlag(Permissions.Recruitment) ? Visibility.Visible : Visibility.Collapsed;
             DelEmploee.Visibility = _user.Permissions.HasFlag(Permissions.Recruitment) ? Visibility.Visible : Visibility.Collapsed;
             AddTrip.Visibility = _user.Permissions.HasFlag(Permissions.BusinessTrip) ? Visibility.Visible : Visibility.Collapsed;
             AddHolyday.Visibility = _user.Permissions.HasFlag(Permissions.Holyday) ? Visibility.Visible : Visibility.Collapsed;
             AddEmploee.Visibility = _user.Permissions.HasFlag(Permissions.Recruitment) ? Visibility.Visible : Visibility.Collapsed;
             AddUser.Visibility = _user.Permissions.HasFlag(Permissions.Recruitment) ? Visibility.Visible : Visibility.Collapsed;
+            ShowTrips.Visibility = _user.Permissions.HasFlag(Permissions.BusinessTrip) ? Visibility.Visible : Visibility.Collapsed;
+            ShowHolidays.Visibility = _user.Permissions.HasFlag(Permissions.Holyday) ? Visibility.Visible : Visibility.Collapsed;
+            ShowUsers.Visibility = _user.Permissions.HasFlag(Permissions.AddUsers) ? Visibility.Visible : Visibility.Collapsed;
         }
 
-        private void LoadEmployees()
+        private void ReloadEmployees()
         {
             EmployeesGrid.Items.Clear();
             _employees = new List<Employee>();
@@ -85,7 +89,7 @@ namespace PersonnelDepartment.Windows
 
         private void ExtendedEmploee_Click(object sender, RoutedEventArgs e)
         {
-            if(_user.Permissions.HasFlag(Permissions.ReadExtendedEmInfo) && EmployeesGrid.SelectedItem is Employee em)
+            if(EmployeesGrid.SelectedItem is Employee em)
             {
                 var emExt = DbDirectReader.GetEmployee(em.Id);
                 var frm = new EmployeeWindow(_user, emExt, true);
@@ -103,16 +107,17 @@ namespace PersonnelDepartment.Windows
         {
             var frm = new EmployeeWindow(_user);
             frm.ShowDialog();
-            LoadEmployees();
+            ReloadEmployees();
         }
 
         private void DelEmploee_Click(object sender, RoutedEventArgs e)
         {
             if(EmployeesGrid.SelectedItem is Employee employee)
-            {
-                DbUpdater.RemoveEmployee(_user, employee);
-                LoadEmployees();
-            }
+                if(MessageBox.Show("Вы уверены, что хотите уволить сотрудника?", "Увольнение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    DbUpdater.RemoveEmployee(_user, employee);
+                    ReloadEmployees();
+                }
         }
 
         private void AddTrip_Click(object sender, RoutedEventArgs e)
@@ -143,6 +148,31 @@ namespace PersonnelDepartment.Windows
 
             foreach(var item in afterUnitFilter)
                 EmployeesGrid.Items.Add(item);
+        }
+
+        private void ShowHolidays_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ShowTrips_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ShowUsers_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UpdateEmploee_Click(object sender, RoutedEventArgs e)
+        {
+            if(EmployeesGrid.SelectedItem is Employee em)
+            {
+                var emExt = DbDirectReader.GetEmployee(em.Id);
+                var frm = new EmployeeWindow(_user, emExt, false);
+                frm.ShowDialog();
+            }
         }
     }
 }

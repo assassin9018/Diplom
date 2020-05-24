@@ -20,6 +20,8 @@ namespace PersonnelDepartment.DTO
         private const string CPlaceOfRegistration = Prefix + "PlaceOfRegistration";
         private const string CIsMarried = Prefix + "IsMarried";
         private const string CChildrenCount = Prefix + "ChildrenCount";
+        private int id;
+        private EmployeeWindow employeeWindow;
 
         #endregion
 
@@ -130,6 +132,11 @@ namespace PersonnelDepartment.DTO
 
             CityOfRegistration = employeeWindow.EmCityOfRegistration.SelectedItem as City;
             CityOfResidence = employeeWindow.EmCityOfResidence.SelectedItem as City;
+        }
+
+        public EmployeeExtended(int id, EmployeeWindow employeeWindow) : this(employeeWindow)
+        {
+            Id = id;
         }
     }
 }

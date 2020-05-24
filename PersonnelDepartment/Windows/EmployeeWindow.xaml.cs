@@ -1,5 +1,6 @@
 ﻿using PersonnelDepartment.DTO;
 using PersonnelDepartment.Helpers.Db;
+using System;
 using System.Linq;
 using System.Windows;
 
@@ -142,7 +143,7 @@ namespace PersonnelDepartment.Windows
 
         private void Enter_Click(object sender, RoutedEventArgs e)
         {
-            if(TryWriteValue())
+            if(_id == -1 && TryWriteValue() || _id > -1 && TryUpdateValue())
                 Close();
         }
 
@@ -158,6 +159,22 @@ namespace PersonnelDepartment.Windows
                 var value = new EmployeeExtended(this);
 
                 DbWriter.AddEmployee(value);
+
+                return true;
+            }
+            else
+                MessageBox.Show(RuStrings.NotAllDataIsFilled);
+
+            return false;
+        }
+
+        private bool TryUpdateValue()
+        {
+            if(IsAllOk())
+            {
+                var value = new EmployeeExtended(_id, this);
+
+                DbUpdater.UpdateEmployee(value);
 
                 return true;
             }

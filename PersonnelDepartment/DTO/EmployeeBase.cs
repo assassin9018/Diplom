@@ -15,7 +15,7 @@ namespace PersonnelDepartment.DTO
         /// <summary>
         /// Id записи в БД.
         /// </summary>
-        public int Id { get; }
+        public int Id { get; protected set; }
 
         /// <summary>
         /// Фамилия

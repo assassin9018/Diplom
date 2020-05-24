@@ -17,6 +17,9 @@
             <MenuItem Header="Сервис">
                 <MenuItem Header="Нанять сотрудника" Name="AddEmploee" Click="AddEmploee_Click"/>
                 <MenuItem Header="Добавить пользователя" Name="AddUser" Click="AddUser_Click"/>
+                <MenuItem Header="Отпуска" Name="ShowHolidays" Click="ShowHolidays_Click"/>
+                <MenuItem Header="Командировки" Name="ShowTrips" Click="ShowTrips_Click"/>
+                <MenuItem Header="Пользователи" Name="ShowUsers" Click="ShowUsers_Click"/>
             </MenuItem>
         </Menu>
 
@@ -39,6 +42,7 @@
                 <DataGrid.ContextMenu>
                     <ContextMenu>
                         <MenuItem  Header="Подробнее" Name="ExtendedEmploee" Click="ExtendedEmploee_Click"/>
+                        <MenuItem  Header="Редактировать" Name="UpdateEmploee" Click="UpdateEmploee_Click"/>
                         <MenuItem  Header="В командировку" Name="AddTrip" Click="AddTrip_Click"/>
                         <MenuItem  Header="В отпуск" Name="AddHolyday" Click="AddHolyday_Click"/>
                         <MenuItem  Header="Уволить" Name="DelEmploee" Click="DelEmploee_Click"/>
