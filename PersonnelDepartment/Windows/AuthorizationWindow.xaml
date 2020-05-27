@@ -12,6 +12,9 @@
             <MenuItem Header="Сервис">
                 <MenuItem Header="Строка подключения" Name="ConnectionStringBtn" Click="ConnectionStringBtn_Click"/>
             </MenuItem>
+            <MenuItem Header="Справка">
+                <MenuItem Header="Руководство пользователя" Name="Manual" Click="Manual_Click"/>
+            </MenuItem>
         </Menu>
 
         <TextBlock Margin="75,0,0,100" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Логин"/>

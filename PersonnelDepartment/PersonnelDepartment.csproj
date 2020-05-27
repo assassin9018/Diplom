@@ -124,6 +124,9 @@
     <Compile Include="Windows\SpecialtyWindow.xaml.cs">
       <DependentUpon>SpecialtyWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\UserManualWindow.xaml.cs">
+      <DependentUpon>UserManualWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\UsersViewWindow.xaml.cs">
       <DependentUpon>UsersViewWindow.xaml</DependentUpon>
     </Compile>
@@ -197,6 +200,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\UserManualWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\UsersViewWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -240,6 +247,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Manual.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

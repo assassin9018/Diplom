@@ -41,5 +41,11 @@ namespace PersonnelDepartment.Windows
             var frm = new ConnStringEditorWindow();
             frm.ShowDialog();
         }
+
+        private void Manual_Click(object sender, RoutedEventArgs e)
+        {
+            var frm = new UserManualWindow();
+            frm.ShowDialog();
+        }
     }
 }

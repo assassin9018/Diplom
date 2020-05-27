@@ -21,6 +21,9 @@
                 <MenuItem Header="Командировки" Name="ShowTrips" Click="ShowTrips_Click"/>
                 <MenuItem Header="Пользователи" Name="ShowUsers" Click="ShowUsers_Click"/>
             </MenuItem>
+            <MenuItem Header="Справка">
+                <MenuItem Header="Руководство пользователя" Name="Manual" Click="Manual_Click"/>
+            </MenuItem>
         </Menu>
 
         <RadioButton Name="SearchRbt" Margin="360,0,0,30" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Поиск" IsChecked="True" Checked="RbtChanged" Unchecked="RbtChanged"/>

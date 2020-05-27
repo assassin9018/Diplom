@@ -218,5 +218,11 @@ namespace PersonnelDepartment.Windows
             foreach(var item in afterUnitFilter)
                 EmployeesGrid.Items.Add(item);
         }
+
+        private void Manual_Click(object sender, RoutedEventArgs e)
+        {
+            var frm = new UserManualWindow();
+            frm.ShowDialog();
+        }
     }
 }
