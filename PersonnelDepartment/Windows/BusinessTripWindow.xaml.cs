@@ -20,13 +20,13 @@ namespace PersonnelDepartment.Windows
 
         internal BusinessTripWindow(User user) : this()
         {
+            _user = user;
             AddOrganizationBtn.IsEnabled = user.Permissions.HasFlag(Permissions.AddInnerInfo);
             LoadData();
         }
 
         internal BusinessTripWindow(User user, Employee employee) : this(user)
         {
-            _user = user;
             int index = EmployeeCb.Items.Cast<EmployeeBase>().TakeWhile(em => em.Id != employee.Id).Count();
             index = index == EmployeeCb.Items.Count ? -1 : index;
             EmployeeCb.SelectedIndex = index;
